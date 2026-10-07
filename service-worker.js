@@ -1,14 +1,9 @@
-const CACHE_NAME = "brothers-poultry-v2";
+const CACHE_NAME = "brothers-poultry-v1";
 const FILES_TO_CACHE = [
-  "./",
   "./index.html",
   "./manifest.json",
   "./icon-192.png",
-  "./icon-512.png",
-  "./icon-maskable-192.png",
-  "./icon-maskable-512.png",
-  "./apple-touch-icon.png",
-  "./logo.svg"
+  "./icon-512.png"
 ];
 
 self.addEventListener("install", (e) => {
@@ -22,42 +17,13 @@ self.addEventListener("activate", (e) => {
   e.waitUntil(
     caches.keys().then((keys) =>
       Promise.all(keys.filter((k) => k !== CACHE_NAME).map((k) => caches.delete(k)))
-    ).then(() => self.clients.claim())
+    )
   );
+  self.clients.claim();
 });
 
 self.addEventListener("fetch", (e) => {
-  const req = e.request;
-  if (req.method !== "GET") return;
-  const url = new URL(req.url);
-
-  // পেজ নেভিগেশন: নেটওয়ার্ক আগে (নতুন ভার্সন পেতে), অফলাইনে ক্যাশ থেকে
-  if (req.mode === "navigate") {
-    e.respondWith(
-      fetch(req)
-        .then((res) => {
-          const copy = res.clone();
-          caches.open(CACHE_NAME).then((c) => c.put("./index.html", copy));
-          return res;
-        })
-        .catch(() => caches.match("./index.html"))
-    );
-    return;
-  }
-
-  // বাকি সব (আইকন, ফন্ট ইত্যাদি): ক্যাশ আগে, না থাকলে নেটওয়ার্ক ও ক্যাশে সেভ
   e.respondWith(
-    caches.match(req).then((cached) => {
-      if (cached) return cached;
-      return fetch(req)
-        .then((res) => {
-          if (res && (res.status === 200 || res.type === "opaque")) {
-            const copy = res.clone();
-            caches.open(CACHE_NAME).then((c) => c.put(req, copy));
-          }
-          return res;
-        })
-        .catch(() => (url.origin === location.origin ? caches.match("./index.html") : undefined));
-    })
+    caches.match(e.request).then((cached) => cached || fetch(e.request))
   );
 });
