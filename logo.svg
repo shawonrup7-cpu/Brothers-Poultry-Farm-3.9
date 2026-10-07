@@ -1,83 +1,20 @@
-<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <linearGradient id="bgGrad" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0%" stop-color="#075d3d"/>
-      <stop offset="100%" stop-color="#0a8a5a"/>
-    </linearGradient>
-    <linearGradient id="sunGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffe066"/>
-      <stop offset="100%" stop-color="#ffb300"/>
-    </linearGradient>
-    <linearGradient id="chickenGrad" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0%" stop-color="#ffffff"/>
-      <stop offset="100%" stop-color="#e8f5ee"/>
-    </linearGradient>
-  </defs>
-
-  <!-- Background -->
-  <rect width="512" height="512" rx="100" fill="url(#bgGrad)"/>
-
-  <!-- Ground -->
-  <rect x="0" y="370" width="512" height="142" rx="0" fill="#0a7a50"/>
-  <ellipse cx="256" cy="372" rx="240" ry="30" fill="#0a8a5a"/>
-
-  <!-- Sun rays -->
-  <g transform="translate(256,160)" stroke="#ffe066" stroke-width="6" stroke-linecap="round" opacity="0.6">
-    <line x1="0" y1="-100" x2="0" y2="-130"/>
-    <line x1="71" y1="-71" x2="92" y2="-92"/>
-    <line x1="100" y1="0" x2="130" y2="0"/>
-    <line x1="-71" y1="-71" x2="-92" y2="-92"/>
-    <line x1="-100" y1="0" x2="-130" y2="0"/>
-    <line x1="71" y1="71" x2="92" y2="92"/>
-    <line x1="-71" y1="71" x2="-92" y2="92"/>
-  </g>
-
-  <!-- Sun -->
-  <circle cx="256" cy="160" r="55" fill="url(#sunGrad)"/>
-
-  <!-- Chicken body -->
-  <ellipse cx="256" cy="310" rx="80" ry="70" fill="url(#chickenGrad)"/>
-
-  <!-- Chicken head -->
-  <circle cx="256" cy="215" r="48" fill="url(#chickenGrad)"/>
-
-  <!-- Comb -->
-  <ellipse cx="238" cy="173" rx="13" ry="20" fill="#e53935"/>
-  <ellipse cx="256" cy="168" rx="14" ry="23" fill="#e53935"/>
-  <ellipse cx="274" cy="173" rx="13" ry="20" fill="#e53935"/>
-
-  <!-- Wattle -->
-  <ellipse cx="256" cy="256" rx="14" ry="11" fill="#e53935"/>
-
-  <!-- Beak -->
-  <polygon points="256,232 282,242 256,254" fill="#ffb300"/>
-
-  <!-- Eye -->
-  <circle cx="270" cy="213" r="10" fill="#182230"/>
-  <circle cx="273" cy="210" r="4" fill="white"/>
-
-  <!-- Wings -->
-  <ellipse cx="190" cy="305" rx="28" ry="50" fill="#d6ede0" transform="rotate(-20,190,305)"/>
-  <ellipse cx="322" cy="305" rx="28" ry="50" fill="#d6ede0" transform="rotate(20,322,305)"/>
-
-  <!-- Tail feathers -->
-  <ellipse cx="165" cy="285" rx="18" ry="48" fill="#b2d8c0" transform="rotate(-40,165,285)"/>
-  <ellipse cx="150" cy="300" rx="15" ry="40" fill="#9ecdb5" transform="rotate(-55,150,300)"/>
-
-  <!-- Legs -->
-  <line x1="230" y1="375" x2="215" y2="415" stroke="#ffb300" stroke-width="8" stroke-linecap="round"/>
-  <line x1="282" y1="375" x2="297" y2="415" stroke="#ffb300" stroke-width="8" stroke-linecap="round"/>
-  <line x1="215" y1="415" x2="190" y2="420" stroke="#ffb300" stroke-width="7" stroke-linecap="round"/>
-  <line x1="215" y1="415" x2="213" y2="432" stroke="#ffb300" stroke-width="7" stroke-linecap="round"/>
-  <line x1="297" y1="415" x2="322" y2="420" stroke="#ffb300" stroke-width="7" stroke-linecap="round"/>
-  <line x1="297" y1="415" x2="299" y2="432" stroke="#ffb300" stroke-width="7" stroke-linecap="round"/>
-
-  <!-- Grass tufts -->
-  <ellipse cx="100" cy="380" rx="30" ry="12" fill="#0d9e60"/>
-  <ellipse cx="400" cy="380" rx="30" ry="12" fill="#0d9e60"/>
-  <ellipse cx="160" cy="375" rx="20" ry="9" fill="#0d9e60"/>
-  <ellipse cx="350" cy="375" rx="20" ry="9" fill="#0d9e60"/>
-
-  <!-- Border ring -->
-  <rect width="512" height="512" rx="100" fill="none" stroke="#ffffff25" stroke-width="6"/>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#0a4a2f"/><stop offset="1" stop-color="#1aad6e"/></linearGradient></defs><rect width="512" height="512" rx="112.64" fill="url(#g)"/><g transform="translate(90 90) scale(3.32)">
+      <ellipse cx="50" cy="62" rx="30" ry="26" fill="#f5f0e8"/>
+      <ellipse cx="44" cy="65" rx="20" ry="14" fill="#e8e0d0" transform="rotate(-10 44 65)"/>
+      <ellipse cx="50" cy="38" rx="11" ry="14" fill="#f5f0e8"/>
+      <circle cx="50" cy="26" r="14" fill="#f5f0e8"/>
+      <ellipse cx="44" cy="14" rx="5" ry="7" fill="#e53e3e"/>
+      <ellipse cx="50" cy="12" rx="5" ry="8" fill="#e53e3e"/>
+      <ellipse cx="56" cy="14" rx="5" ry="7" fill="#e53e3e"/>
+      <ellipse cx="50" cy="35" rx="5" ry="7" fill="#e53e3e"/>
+      <circle cx="55" cy="24" r="3.5" fill="#1a1a1a"/>
+      <circle cx="56.2" cy="22.8" r="1" fill="white"/>
+      <polygon points="60,26 68,23 60,30" fill="#f6ad55"/>
+      <ellipse cx="22" cy="52" rx="8" ry="18" fill="#d4c9b0" transform="rotate(30 22 52)"/>
+      <rect x="40" y="84" width="5" height="12" rx="2" fill="#f6ad55"/>
+      <rect x="55" y="84" width="5" height="12" rx="2" fill="#f6ad55"/>
+      <line x1="40" y1="96" x2="33" y2="100" stroke="#f6ad55" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="40" y1="96" x2="47" y2="100" stroke="#f6ad55" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="60" y1="96" x2="53" y2="100" stroke="#f6ad55" stroke-width="2.5" stroke-linecap="round"/>
+      <line x1="60" y1="96" x2="67" y2="100" stroke="#f6ad55" stroke-width="2.5" stroke-linecap="round"/>
+    </g></svg>

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <title>ব্রাদার্স পোল্ট্রি ফার্ম</title>
+<meta name="description" content="ব্রাদার্স পোল্ট্রি ফার্মের সম্পূর্ণ হিসাব-নিকাশ অ্যাপ">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0a4a2f">
 <meta name="mobile-web-app-capable" content="yes">
@@ -11,28 +12,28 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="ব্রাদার্স পোল্ট্রি">
 <link rel="icon" href="icon-192.png">
-<link rel="apple-touch-icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
 body{margin:0;background:#0f1923;color:#e8edf2;font-family:'Hind Siliguri',system-ui,-apple-system,sans-serif;min-height:100vh}
 
 /* ── HEADER ── */
-header{background:linear-gradient(160deg,#041f14 0%,#062d1e 40%,#0a4a2f 100%);color:white;padding:16px 14px 0;position:sticky;top:0;z-index:20;box-shadow:0 4px 24px #00000060;border-bottom:1px solid #1a5c3a;overflow:hidden}
-.brand{display:flex;flex-direction:column;align-items:center;text-align:center;gap:0;padding:6px 0 10px}
+header{background:linear-gradient(160deg,#041f14 0%,#062d1e 40%,#0a4a2f 100%);color:white;padding:8px 12px 8px;position:relative;overflow:hidden}
+.brand{display:flex;flex-direction:row;align-items:center;gap:12px;padding:0 0 8px}
 .logo{width:52px;height:52px;border-radius:16px;background:linear-gradient(135deg,#1aad6e,#0d8050);display:grid;place-items:center;font-size:30px;box-shadow:0 4px 12px #00000040,0 0 0 2px #ffffff18}
-h1{margin:0;font-size:19px;font-weight:700;letter-spacing:.2px}
+h1{margin:0;font-size:21px;font-weight:900;letter-spacing:.3px;color:#fff;text-shadow:0 2px 8px #00000080;line-height:1.2}
 .sub{font-size:11px;opacity:.7;margin-top:2px}
-nav{display:flex;gap:6px;overflow-x:auto;padding:10px 0 0;scrollbar-width:none}
+nav{display:flex;gap:6px;overflow-x:auto;padding:6px 10px;scrollbar-width:none;position:sticky;top:0;z-index:20;background:linear-gradient(160deg,#041f14,#0a4a2f);border-bottom:1px solid #1a5c3a;box-shadow:0 4px 16px #00000060}
 nav::-webkit-scrollbar{display:none}
-.nav{border:0;border-radius:10px;background:#ffffff0e;color:#ffffffaa;padding:8px 13px;white-space:nowrap;font-weight:700;font-size:12.5px;cursor:pointer;transition:all .2s;font-family:inherit;border:1.5px solid transparent}
+.nav{border:0;border-radius:10px;background:#ffffff0e;color:#ffffffaa;padding:6px 12px;white-space:nowrap;font-weight:700;font-size:12.5px;cursor:pointer;transition:all .2s;font-family:inherit;border:1.5px solid transparent}
 .nav:hover{transform:translateY(-1px);color:#fff;filter:brightness(1.15)}
 .nav.active{color:#fff;box-shadow:0 4px 14px #00000050;border-color:#ffffff30;transform:translateY(-1px)}
-.toolbar{display:flex;gap:7px;margin-top:9px;flex-wrap:wrap}
-.tbtn{border:1px solid #ffffff28;background:#ffffff0e;color:#ffffffcc;border-radius:9px;padding:7px 11px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;font-family:inherit}
+.toolbar{display:flex;gap:6px;margin-top:0;flex-wrap:nowrap}
+.tbtn{white-space:nowrap;border:1px solid #ffffff28;background:#ffffff0e;color:#ffffffcc;border-radius:9px;padding:6px 10px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s;font-family:inherit}
 .tbtn:hover{background:#ffffff1e;color:#fff}
 .tbtn:active{background:#ffffff2e}
-#batchSelect{border:1px solid #ffffff28;background:#ffffff0e;color:#fff;border-radius:9px;padding:7px 11px;font-size:12px;font-weight:600;flex:1;min-width:140px;font-family:inherit}
+#batchSelect{border:1px solid #ffffff28;background:#ffffff0e;color:#fff;border-radius:9px;padding:6px 10px;font-size:12px;font-weight:600;flex:1;min-width:90px;margin-top:0;width:auto;font-family:inherit}
 #batchSelect option{color:#111;background:#fff}
 .tbtn-light{border:1px solid #ffffff18;background:#ffffff0a;color:#b8c4ce;border-radius:9px;padding:7px 11px;font-size:12px;font-weight:600;cursor:pointer;font-family:inherit}
 .tbtn-light:hover{background:#ffffff15;color:#e8edf2}
@@ -137,6 +138,41 @@ tr:hover td{background:#ffffff04}
 .db-status::before{content:'';width:7px;height:7px;border-radius:50%;background:#3ddc84;animation:pulse 1.6s infinite}
 @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.3)}}
 
+
+/* ── PAGE SUMMARY ── */
+.pgsum{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:14px}
+.sc{display:flex;align-items:center;gap:10px;background:linear-gradient(145deg,#0d2b1e,#122e22);border:1px solid #1a5c3a60;border-radius:14px;padding:10px 12px;min-width:0}
+.sci{font-size:22px;line-height:1;flex-shrink:0}
+.scl{font-size:10.5px;color:#7a9aaa;font-weight:600;letter-spacing:.3px}
+.scv{font-size:15px;font-weight:800;color:#e8edf2;line-height:1.2;word-break:break-word}
+@media(max-width:850px){.pgsum{grid-template-columns:repeat(2,1fr)}}
+.edt{border:1px solid #3d8bff40;background:#3d8bff12;color:#70b8ff;border-radius:8px;padding:5px 9px;font-size:12px;cursor:pointer;font-family:inherit;transition:all .15s;margin-right:4px}
+.edt:hover{background:#3d8bff28}
+.card[onclick]{cursor:pointer;position:relative}
+.card[onclick]:active{transform:scale(.97)}
+.card[onclick]::after{content:"👆";position:absolute;top:8px;right:10px;font-size:12px;opacity:.35}
+.mbox .pgsum{grid-template-columns:repeat(2,1fr);margin-bottom:0}
+.grid5{grid-template-columns:repeat(5,1fr)}
+@media(max-width:850px){.grid5{grid-template-columns:repeat(2,1fr)}.grid5>.card:last-child{grid-column:span 2}}
+.closebar{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap;background:linear-gradient(135deg,#2b1e0d,#2e2212);border:1px solid #ffb83d50;border-radius:14px;padding:12px 14px;margin-bottom:12px;color:#ffd070;font-size:14px}
+.closebar.closed{background:linear-gradient(135deg,#0d2b1e,#122e22);border-color:#1aad6e60;color:#6ee8aa}
+.closebar .add{margin-top:0}
+.cbsub{font-size:11.5px;color:#c8d8e4;margin-top:3px;font-weight:400}
+.warnbox{background:#2b1e0d;border:1px solid #ffb83d50;color:#ffd070;border-radius:12px;padding:10px 12px;font-size:13px;margin-top:10px;line-height:1.6}
+.okbox{background:#0d2b1e;border:1px solid #1aad6e50;color:#6ee8aa;border-radius:12px;padding:10px 12px;font-size:13px;margin-top:10px}
+.oslive{margin-top:8px;padding:10px 14px;background:#102a3a;border:1px solid #3d8bff50;border-radius:10px;font-size:14px;color:#8cc4ff;font-weight:700}
+.oslive b{color:#fff}
+/* ── EDIT MODAL ── */
+.modal{position:fixed;top:0;left:0;right:0;bottom:0;background:#000000b0;display:none;z-index:100;align-items:flex-end;justify-content:center}
+.modal.show{display:flex}
+.mbox{background:#131f29;border:1px solid #1a5c3a;border-radius:18px 18px 0 0;padding:16px;width:100%;max-width:600px;max-height:90vh;overflow:auto;box-shadow:0 -8px 40px #000000a0}
+.mtitle{font-size:16px;font-weight:700;color:#a8d5b5;margin-bottom:12px}
+.mfields{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.mfields label.wide{grid-column:1/-1}
+.mbtns{display:flex;gap:8px;margin-top:6px;align-items:center}
+.mbtns .add{margin-top:11px}
+.mbtns .tbtn-light{margin-top:11px;padding:11px 18px;font-size:13px}
+@media(min-width:700px){.modal{align-items:center}.mbox{border-radius:18px}}
 /* ── RESPONSIVE ── */
 @media(max-width:850px){.grid{grid-template-columns:repeat(2,1fr)}.fields{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:480px){
@@ -181,8 +217,8 @@ tr:hover td{background:#ffffff04}
 <!-- কন্টেন্ট -->
 <div style="position:relative;z-index:2">
 <div class="brand">
-  <div class="logo" style="width:72px;height:72px;border-radius:20px;background:linear-gradient(135deg,#0a4a2f,#1aad6e);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px #00000050,0 0 0 3px #1aad6e40;margin-bottom:10px">
-    <svg width="56" height="56" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+  <div class="logo" style="width:48px;height:48px;border-radius:14px;background:linear-gradient(135deg,#0a4a2f,#1aad6e);display:flex;align-items:center;justify-content:center;box-shadow:0 4px 12px #00000050,0 0 0 2px #1aad6e40;flex-shrink:0">
+    <svg width="38" height="38" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
       <ellipse cx="50" cy="62" rx="30" ry="26" fill="#f5f0e8"/>
       <ellipse cx="44" cy="65" rx="20" ry="14" fill="#e8e0d0" transform="rotate(-10 44 65)"/>
       <ellipse cx="50" cy="38" rx="11" ry="14" fill="#f5f0e8"/>
@@ -203,23 +239,22 @@ tr:hover td{background:#ffffff04}
       <line x1="60" y1="96" x2="67" y2="100" stroke="#f6ad55" stroke-width="2.5" stroke-linecap="round"/>
     </svg>
   </div>
-  <h1 style="font-size:22px;margin:0;font-weight:900;letter-spacing:.5px;color:#fff;text-shadow:0 2px 8px #00000080">ব্রাদার্স পোল্ট্রি ফার্ম</h1>
-  <div style="font-size:14px;color:#a8f0c8;margin-top:5px;font-weight:700;text-shadow:0 1px 4px #00000060">শাহরীন ইমতিয়াজ শাওন</div>
-  <div style="font-size:13px;color:#6ee8aa;margin-top:3px;letter-spacing:.8px;text-shadow:0 1px 4px #00000060">📞 01714-652226</div>
-</div>
-<div class="toolbar">
-<button class="tbtn" onclick="backupData()">💾 ব্যাকআপ ডাউনলোড</button>
-<button class="tbtn" onclick="document.getElementById('restoreFile').click()">📥 ব্যাকআপ থেকে ফেরত আনুন</button>
-<input type="file" id="restoreFile" accept="application/json" style="display:none" onchange="restoreData(this.files[0])">
+  <h1>ব্রাদার্স পোল্ট্রি ফার্ম</h1>
 </div>
 <div class="toolbar" id="batchBar">
 <select id="batchSelect" onchange="switchBatch(this.value)"></select>
 <button class="tbtn" onclick="newBatch()">➕ নতুন ব্যাচ</button>
+<button class="tbtn" title="ব্যাকআপ ডাউনলোড" onclick="backupData()">💾</button>
+<button class="tbtn" title="ব্যাকআপ থেকে ফেরত আনুন" onclick="document.getElementById('restoreFile').click()">📥</button>
+<input type="file" id="restoreFile" accept="application/json" style="display:none" onchange="restoreData(this.files[0])">
 </div>
-<nav id="nav"></nav>
 </div>
 </header>
+<nav id="nav"></nav>
 <div id="toast" class="toast"></div>
+<div id="summaryModal" class="modal" onclick="if(event.target===this)closeSummary()"><div class="mbox"><div id="sumTitle" class="mtitle"></div><div id="sumBody"></div><div class="mbtns"><button class="add" id="sumOpen">📂 পুরো হিসাব দেখুন</button><button class="tbtn-light" onclick="closeSummary()">বন্ধ করুন</button></div></div></div>
+<div id="closeModal" class="modal" onclick="if(event.target===this)hideClose()"><div class="mbox"><div class="mtitle">🔒 ব্যাচ ক্লোজ করুন</div><div id="closeBody"></div><div class="mbtns"><button class="add" id="closeConfirmBtn" onclick="confirmClose()">🔒 ক্লোজ নিশ্চিত করুন</button><button class="tbtn-light" onclick="hideClose()">বাতিল</button></div></div></div>
+<div id="editModal" class="modal" onclick="if(event.target===this)closeEdit()"><div class="mbox"><div id="editTitle" class="mtitle"></div><div id="editBody" class="mfields"></div><div class="mbtns"><button class="add" onclick="saveEdit()">💾 সংরক্ষণ</button><button class="tbtn-light" onclick="closeEdit()">বাতিল</button></div></div></div>
 <main>
 
 <section id="dashboard" class="page active">
@@ -249,35 +284,39 @@ tr:hover td{background:#ffffff04}
   </div>
 </div>
 
+<div id="closeBar"></div>
+<div class="hint">👆 যেকোনো কার্ডে চাপ দিন — তার সামারি দেখা যাবে</div>
 <!-- Flock -->
 <div class="section">🐔 মুরগির অবস্থা</div>
-<div class="grid">
-  <div class="card metric m-blue" style="--accent:#3d8bff20"><div class="ico-wrap" style="background:linear-gradient(135deg,#3d8bff,#1a5fff)"><div class="ico">📅</div></div><div class="lab">বয়স</div><div class="val" id="kAge">০ দিন</div></div>
-  <div class="card metric m-blue" style="--accent:#3d8bff20"><div class="ico-wrap" style="background:linear-gradient(135deg,#3d8bff,#1a5fff)"><div class="ico">🐣</div></div><div class="lab">মোট বাচ্চা</div><div class="val" id="kChicks">০</div></div>
-  <div class="card metric m-red" style="--accent:#ff4d4d20"><div class="ico-wrap" style="background:linear-gradient(135deg,#ff4d4d,#cc2222)"><div class="ico">☠️</div></div><div class="lab">মৃত</div><div class="val" id="kDead">০</div></div>
-  <div class="card metric m-green" style="--accent:#1aad6e20"><div class="ico-wrap" style="background:linear-gradient(135deg,#1aad6e,#0d8050)"><div class="ico">🐔</div></div><div class="lab">বর্তমান আছে</div><div class="val" id="kLive">০</div></div>
+<div class="grid grid5">
+  <div onclick="showSummary('farm')" class="card metric m-blue" style="--accent:#3d8bff20"><div class="ico-wrap" style="background:linear-gradient(135deg,#3d8bff,#1a5fff)"><div class="ico">📅</div></div><div class="lab">বয়স</div><div class="val" id="kAge">০ দিন</div></div>
+  <div onclick="showSummary('farm')" class="card metric m-blue" style="--accent:#3d8bff20"><div class="ico-wrap" style="background:linear-gradient(135deg,#3d8bff,#1a5fff)"><div class="ico">🐣</div></div><div class="lab">মোট বাচ্চা</div><div class="val" id="kChicks">০</div></div>
+  <div onclick="showSummary('deaths')" class="card metric m-red" style="--accent:#ff4d4d20"><div class="ico-wrap" style="background:linear-gradient(135deg,#ff4d4d,#cc2222)"><div class="ico">☠️</div></div><div class="lab">মৃত</div><div class="val" id="kDead">০</div></div>
+  <div onclick="showSummary('sales')" class="card metric m-amber"><div class="ico-wrap" style="background:linear-gradient(135deg,#d97706,#92400e)"><div class="ico">🛒</div></div><div class="lab">বিক্রিত মুরগি</div><div class="val" id="kSold">০</div></div>
+  <div onclick="showSummary('farm')" class="card metric m-green" style="--accent:#1aad6e20"><div class="ico-wrap" style="background:linear-gradient(135deg,#1aad6e,#0d8050)"><div class="ico">🐔</div></div><div class="lab">বর্তমান আছে</div><div class="val" id="kLive">০</div></div>
 </div>
+<div class="hint" id="outHint" style="display:none"></div>
 
 <!-- Expenses -->
 <div class="section">💸 খরচের হিসাব</div>
 <div class="grid">
-  <div class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#d97706,#b45309)"><div class="ico">🌾</div></div><div class="lab">ফিড খরচ</div><div class="val" style="color:#fbbf24" id="kFeed">৳০</div></div>
-  <div class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#7c3aed,#5b21b6)"><div class="ico">💊</div></div><div class="lab">Medicine</div><div class="val" style="color:#c4b5fd" id="kMed">৳০</div></div>
-  <div class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#0284c7,#0369a1)"><div class="ico">👷</div></div><div class="lab">কর্মচারী</div><div class="val" style="color:#7dd3fc" id="kWorker">৳০</div></div>
-  <div class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#ea580c,#c2410c)"><div class="ico">🧾</div></div><div class="lab">বিভিন্ন খরচ</div><div class="val" style="color:#fdba74" id="kOther">৳০</div></div>
-  <div class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#65a30d,#4d7c0f)"><div class="ico">🪵</div></div><div class="lab">কাঠের গুড়া</div><div class="val" style="color:#bef264" id="kLitter">৳০</div></div>
-  <div class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#0891b2,#0e7490)"><div class="ico">🚚</div></div><div class="lab">পরিবহন ভাড়া</div><div class="val" style="color:#67e8f9" id="kRent">৳০</div></div>
+  <div onclick="showSummary('feed')" class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#d97706,#b45309)"><div class="ico">🌾</div></div><div class="lab">ফিড খরচ</div><div class="val" style="color:#fbbf24" id="kFeed">৳০</div></div>
+  <div onclick="showSummary('medicine')" class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#7c3aed,#5b21b6)"><div class="ico">💊</div></div><div class="lab">Medicine</div><div class="val" style="color:#c4b5fd" id="kMed">৳০</div></div>
+  <div onclick="showSummary('workers')" class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#0284c7,#0369a1)"><div class="ico">👷</div></div><div class="lab">কর্মচারী</div><div class="val" style="color:#7dd3fc" id="kWorker">৳০</div></div>
+  <div onclick="showSummary('other')" class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#ea580c,#c2410c)"><div class="ico">🧾</div></div><div class="lab">বিভিন্ন খরচ</div><div class="val" style="color:#fdba74" id="kOther">৳০</div></div>
+  <div onclick="showSummary('litter')" class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#65a30d,#4d7c0f)"><div class="ico">🪵</div></div><div class="lab">কাঠের গুড়া</div><div class="val" style="color:#bef264" id="kLitter">৳০</div></div>
+  <div onclick="showSummary('rent')" class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#0891b2,#0e7490)"><div class="ico">🚚</div></div><div class="lab">পরিবহন ভাড়া</div><div class="val" style="color:#67e8f9" id="kRent">৳০</div></div>
 </div>
 
 <!-- Sales & Profit -->
 <div class="section">📈 বিক্রি ও লাভ-ক্ষতি</div>
 <div class="grid" style="grid-template-columns:repeat(2,1fr)">
-  <div class="card metric m-amber"><div class="ico-wrap" style="background:linear-gradient(135deg,#d97706,#92400e)"><div class="ico">💰</div></div><div class="lab">মোট আয় (সব বিক্রি)</div><div class="val" id="kSales">৳০</div></div>
-  <div class="card metric" id="kProfitCard"><div class="ico-wrap" style="background:linear-gradient(135deg,#059669,#047857)" id="kProfitIco"><div class="ico">📊</div></div><div class="lab">নিট লাভ / ক্ষতি</div><div class="val" id="kProfit">৳০</div></div>
+  <div onclick="showSummary('income')" class="card metric m-amber"><div class="ico-wrap" style="background:linear-gradient(135deg,#d97706,#92400e)"><div class="ico">💰</div></div><div class="lab">মোট আয় (সব বিক্রি)</div><div class="val" id="kSales">৳০</div></div>
+  <div onclick="showSummary('report')" class="card metric" id="kProfitCard"><div class="ico-wrap" style="background:linear-gradient(135deg,#059669,#047857)" id="kProfitIco"><div class="ico">📊</div></div><div class="lab">নিট লাভ / ক্ষতি</div><div class="val" id="kProfit">৳০</div></div>
 </div>
 <div class="grid" style="grid-template-columns:repeat(2,1fr);margin-top:10px">
-  <div class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#dc2626,#991b1b)"><div class="ico">⚖️</div></div><div class="lab">মৃত্যুর হার</div><div class="val" id="kDeathRate" style="color:#f87171">০%</div></div>
-  <div class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#059669,#047857)"><div class="ico">🏷️</div></div><div class="lab">প্রতি মুরগি মোট খরচ</div><div class="val" id="kCostPerKg" style="color:#34d399;font-size:15px">৳০</div></div>
+  <div onclick="showSummary('deaths')" class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#dc2626,#991b1b)"><div class="ico">⚖️</div></div><div class="lab">মৃত্যুর হার</div><div class="val" id="kDeathRate" style="color:#f87171">০%</div></div>
+  <div onclick="showSummary('report')" class="card metric"><div class="ico-wrap" style="background:linear-gradient(135deg,#059669,#047857)"><div class="ico">🏷️</div></div><div class="lab">প্রতি মুরগি মোট খরচ</div><div class="val" id="kCostPerKg" style="color:#34d399;font-size:15px">৳০</div></div>
 </div>
 
 <!-- Summary -->
@@ -329,71 +368,91 @@ tr:hover td{background:#ffffff04}
 <div id="generatedPages"></div>
 <!-- লিটার বিক্রি আলাদা পেজ -->
 <section id="othersales" class="page">
-<div class="hint">💡 এখানে মুরগি বিক্রি ছাড়া অন্য সব বিক্রির হিসাব রাখুন — লিটার, খুচরা মুরগি, বস্তা, ফিড</div>
+<div class="hint">💡 এখানে পাইকারি মুরগি বিক্রি ছাড়া অন্য সব হিসাব — লিটার, খুচরা মুরগি, গিফট/নিজের খাওয়া, বস্তা, ফিড। খুচরা মুরগি ও গিফটের পিস খামারের অবশিষ্ট মুরগি থেকে বাদ যাবে।</div>
 
-<!-- ── লিটার বিক্রি ── -->
 <div class="section">🪵 লিটার বিক্রি</div>
 <div class="form">
   <div class="fields">
     <label>তারিখ<input id="os_lDate" type="date"></label>
-    <label>পরিমাণ (কেজি)<input id="os_lQty" type="number" step=".01" placeholder="কত কেজি"></label>
-    <label>দর/কেজি (৳)<input id="os_lRate" type="number" step=".01" placeholder="প্রতি কেজির দাম"></label>
+    <label>পরিমাণ (কেজি)<input id="os_lQty" type="number" min="0" step=".01" placeholder="কত কেজি" oninput="osLive('litter')"></label>
+    <label>দর/কেজি (৳)<input id="os_lRate" type="number" min="0" step=".01" placeholder="প্রতি কেজির দাম" oninput="osLive('litter')"></label>
     <label>ক্রেতার নাম<input id="os_lBuyer" type="text" placeholder="ঐচ্ছিক"></label>
   </div>
-  <div style="margin-top:8px;padding:10px 14px;background:#0d2b1e;border-radius:10px;font-size:14px;color:#3ddc84;font-weight:700">💰 মোট লিটার বিক্রি: <span id="os_lTotal">৳০</span></div>
+  <div class="oslive">🧮 এই এন্ট্রির মোট দাম: <b id="os_lLive">৳০</b></div>
+  <div style="margin-top:8px;padding:10px 14px;background:#0d2b1e;border-radius:10px;font-size:14px;color:#3ddc84;font-weight:700">💰 মোট লিটার বিক্রি (এ পর্যন্ত): <span id="os_lTotal">৳০</span></div>
   <button class="add" onclick="addOtherSale('litter')">➕ লিটার বিক্রি যোগ করুন</button>
 </div>
 <div class="wrap"><table><thead><tr><th>তারিখ</th><th>পরিমাণ (কেজি)</th><th>দর/কেজি</th><th>মোট</th><th>ক্রেতা</th><th>অ্যাকশন</th></tr></thead><tbody id="os_lTable"></tbody></table></div>
 
-<!-- ── খুচরা মুরগি বিক্রি ── -->
 <div class="section">🐔 খুচরা মুরগি বিক্রি</div>
 <div class="form">
   <div class="fields">
     <label>তারিখ<input id="os_cDate" type="date"></label>
-    <label>পরিমাণ (কেজি)<input id="os_cQty" type="number" step=".01" placeholder="কত কেজি"></label>
-    <label>দর/কেজি (৳)<input id="os_cRate" type="number" step=".01" placeholder="প্রতি কেজির দাম"></label>
+    <label>মুরগির পিস<input id="os_cPcs" type="number" min="0" step="1" placeholder="কত পিস" oninput="osLive('chicken')"></label>
+    <label>মোট ওজন (কেজি)<input id="os_cQty" type="number" min="0" step=".01" placeholder="কত কেজি" oninput="osLive('chicken')"></label>
+    <label>দর/কেজি (৳)<input id="os_cRate" type="number" min="0" step=".01" placeholder="প্রতি কেজির দাম" oninput="osLive('chicken')"></label>
     <label>ক্রেতার নাম<input id="os_cBuyer" type="text" placeholder="ঐচ্ছিক"></label>
   </div>
-  <div style="margin-top:8px;padding:10px 14px;background:#0d2b1e;border-radius:10px;font-size:14px;color:#3ddc84;font-weight:700">💰 মোট খুচরা বিক্রি: <span id="os_cTotal">৳০</span></div>
+  <div class="oslive">🧮 এই এন্ট্রির মোট দাম: <b id="os_cLive">৳০</b></div>
+  <div style="margin-top:8px;padding:10px 14px;background:#0d2b1e;border-radius:10px;font-size:14px;color:#3ddc84;font-weight:700">💰 মোট খুচরা মুরগি বিক্রি (এ পর্যন্ত): <span id="os_cTotal">৳০</span></div>
   <button class="add" onclick="addOtherSale('chicken')">➕ খুচরা মুরগি বিক্রি যোগ করুন</button>
 </div>
-<div class="wrap"><table><thead><tr><th>তারিখ</th><th>পরিমাণ (কেজি)</th><th>দর/কেজি</th><th>মোট</th><th>ক্রেতা</th><th>অ্যাকশন</th></tr></thead><tbody id="os_cTable"></tbody></table></div>
+<div class="wrap"><table><thead><tr><th>তারিখ</th><th>পিস</th><th>ওজন (কেজি)</th><th>দর/কেজি</th><th>মোট</th><th>ক্রেতা</th><th>অ্যাকশন</th></tr></thead><tbody id="os_cTable"></tbody></table></div>
 
-<!-- ── বস্তা বিক্রি ── -->
+<div class="section">🎁 গিফট / নিজের খাওয়ার মুরগি</div>
+<div class="form">
+  <div class="hint" style="margin:0 0 8px">🐔 খামারে বর্তমান মুরগি: <b id="os_gAvail">০</b> টি — এখান থেকে যত পিস দেবেন তত বাদ যাবে</div>
+  <div class="fields">
+    <label>তারিখ<input id="os_gDate" type="date"></label>
+    <label>ধরন<select id="os_gKind"><option>গিফট</option><option>নিজের খাওয়া</option></select></label>
+    <label>কাকে দিলেন / নাম<input id="os_gName" type="text" placeholder="যেমন: মামা / নিজের বাসা"></label>
+    <label>মুরগির পিস<input id="os_gPcs" type="number" min="0" step="1" placeholder="কত পিস" oninput="giftLive()"></label>
+    <label>মোট ওজন (কেজি)<input id="os_gWeight" type="number" min="0" step=".01" placeholder="কত কেজি" oninput="giftLive()"></label>
+  </div>
+  <div class="oslive" id="os_gLive">⚖️ গড় ওজন: <b>—</b></div>
+  <div style="margin-top:8px;padding:10px 14px;background:#0d2b1e;border-radius:10px;font-size:14px;color:#3ddc84;font-weight:700"><span id="os_gTot">🎁 মোট: ০ টি</span> <span style="font-weight:500;font-size:12px;opacity:.8">(ওজন মোট গড়ে যোগ হবে)</span></div>
+  <button class="add" onclick="addGift()">➕ গিফট / নিজের খাওয়া যোগ করুন</button>
+</div>
+<div class="wrap"><table><thead><tr><th>তারিখ</th><th>ধরন</th><th>নাম</th><th>পিস</th><th>ওজন</th><th>গড়/মুরগি</th><th>অ্যাকশন</th></tr></thead><tbody id="giftTable"></tbody></table></div>
+
 <div class="section">🛍️ বস্তা বিক্রি</div>
 <div class="form">
   <div class="fields">
     <label>তারিখ<input id="os_bDate" type="date"></label>
-    <label>পরিমাণ (কেজি)<input id="os_bQty" type="number" step=".01" placeholder="কত কেজি"></label>
-    <label>দর/কেজি (৳)<input id="os_bRate" type="number" step=".01" placeholder="প্রতি কেজির দাম"></label>
+    <label>পরিমাণ (কেজি)<input id="os_bQty" type="number" min="0" step=".01" placeholder="কত কেজি" oninput="osLive('bag')"></label>
+    <label>দর/কেজি (৳)<input id="os_bRate" type="number" min="0" step=".01" placeholder="প্রতি কেজির দাম" oninput="osLive('bag')"></label>
     <label>ক্রেতার নাম<input id="os_bBuyer" type="text" placeholder="ঐচ্ছিক"></label>
   </div>
-  <div style="margin-top:8px;padding:10px 14px;background:#0d2b1e;border-radius:10px;font-size:14px;color:#3ddc84;font-weight:700">💰 মোট বস্তা বিক্রি: <span id="os_bTotal">৳০</span></div>
+  <div class="oslive">🧮 এই এন্ট্রির মোট দাম: <b id="os_bLive">৳০</b></div>
+  <div style="margin-top:8px;padding:10px 14px;background:#0d2b1e;border-radius:10px;font-size:14px;color:#3ddc84;font-weight:700">💰 মোট বস্তা বিক্রি (এ পর্যন্ত): <span id="os_bTotal">৳০</span></div>
   <button class="add" onclick="addOtherSale('bag')">➕ বস্তা বিক্রি যোগ করুন</button>
 </div>
 <div class="wrap"><table><thead><tr><th>তারিখ</th><th>পরিমাণ (কেজি)</th><th>দর/কেজি</th><th>মোট</th><th>ক্রেতা</th><th>অ্যাকশন</th></tr></thead><tbody id="os_bTable"></tbody></table></div>
 
-<!-- ── বেচে যাওয়া ফিড বিক্রি ── -->
 <div class="section">🌾 বেচে যাওয়া ফিড বিক্রি</div>
 <div class="form">
   <div class="fields">
     <label>তারিখ<input id="os_fDate" type="date"></label>
-    <label>পরিমাণ (কেজি)<input id="os_fQty" type="number" step=".01" placeholder="কত কেজি"></label>
-    <label>দর/কেজি (৳)<input id="os_fRate" type="number" step=".01" placeholder="প্রতি কেজির দাম"></label>
+    <label>বস্তা (সংখ্যা)<input id="os_fBags" type="number" min="0" step="1" placeholder="কত বস্তা" oninput="osLive('feed')"></label>
+    <label>আলাদা কেজি<input id="os_fLoose" type="number" min="0" step=".01" placeholder="বস্তার বাইরে কত কেজি" oninput="osLive('feed')"></label>
+    <label>প্রতি বস্তায় কত কেজি<input id="os_fBagKg" type="number" min="0" step=".01" value="50" oninput="osLive('feed')"></label>
+    <label>দর/কেজি (৳)<input id="os_fRate" type="number" min="0" step=".01" placeholder="প্রতি কেজির দাম" oninput="osLive('feed')"></label>
     <label>ক্রেতার নাম<input id="os_fBuyer" type="text" placeholder="ঐচ্ছিক"></label>
   </div>
-  <div style="margin-top:8px;padding:10px 14px;background:#0d2b1e;border-radius:10px;font-size:14px;color:#3ddc84;font-weight:700">💰 মোট ফিড বিক্রি: <span id="os_fTotal">৳০</span></div>
+  <div class="oslive">🧮 এই এন্ট্রির মোট দাম: <b id="os_fLive">৳০</b></div>
+  <div style="margin-top:8px;padding:10px 14px;background:#0d2b1e;border-radius:10px;font-size:14px;color:#3ddc84;font-weight:700">💰 মোট ফিড বিক্রি (এ পর্যন্ত): <span id="os_fTotal">৳০</span></div>
   <button class="add" onclick="addOtherSale('feed')">➕ ফিড বিক্রি যোগ করুন</button>
 </div>
-<div class="wrap"><table><thead><tr><th>তারিখ</th><th>পরিমাণ (কেজি)</th><th>দর/কেজি</th><th>মোট</th><th>ক্রেতা</th><th>অ্যাকশন</th></tr></thead><tbody id="os_fTable"></tbody></table></div>
+<div class="wrap"><table><thead><tr><th>তারিখ</th><th>বস্তা</th><th>আলাদা কেজি</th><th>মোট কেজি</th><th>দর/কেজি</th><th>মোট দাম</th><th>ক্রেতা</th><th>অ্যাকশন</th></tr></thead><tbody id="os_fTable"></tbody></table></div>
 
-<!-- ── মোট সারাংশ ── -->
 <div class="section">📊 অন্যান্য বিক্রির সারাংশ</div>
 <div class="grid" style="grid-template-columns:repeat(2,1fr)">
   <div class="card metric m-green"><div class="ico-wrap"><div class="ico">🪵</div></div><div class="lab">লিটার বিক্রি</div><div class="val" id="os_lSum">৳০</div></div>
   <div class="card metric m-green"><div class="ico-wrap"><div class="ico">🐔</div></div><div class="lab">খুচরা মুরগি</div><div class="val" id="os_cSum">৳০</div></div>
   <div class="card metric m-green"><div class="ico-wrap"><div class="ico">🛍️</div></div><div class="lab">বস্তা বিক্রি</div><div class="val" id="os_bSum">৳০</div></div>
   <div class="card metric m-green"><div class="ico-wrap"><div class="ico">🌾</div></div><div class="lab">ফিড বিক্রি</div><div class="val" id="os_fSum">৳০</div></div>
+  <div class="card metric m-amber"><div class="ico-wrap"><div class="ico">🎁</div></div><div class="lab">গিফট / নিজের</div><div class="val" id="os_gSum">০ টি</div></div>
+  <div class="card metric m-blue"><div class="ico-wrap"><div class="ico">🐔</div></div><div class="lab">অবশিষ্ট মুরগি</div><div class="val" id="os_liveSum">০ টি</div></div>
 </div>
 <div class="card" style="margin-top:10px;padding:16px;background:linear-gradient(135deg,#0a2218,#0d281c);border:1px solid #1aad6e40">
   <div style="font-size:13px;color:#6ee8aa;font-weight:600">💰 মোট অন্যান্য বিক্রি (সব মিলিয়ে)</div>
@@ -405,7 +464,7 @@ tr:hover td{background:#ffffff04}
 <div class="section">💊 মেডিসিন শিডিউল যোগ করুন</div>
 <div class="form">
   <div class="fields">
-    <label>তারিখ<input id="msDate" type="date"></label>
+    <label>তারিখ<input id="msDate" type="date" onchange="updateMsAge()"></label>
   </div>
   <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:10px">
     <div style="background:#0d1923;border:1px solid #1a5c3a;border-radius:12px;padding:12px">
@@ -466,7 +525,7 @@ const SEED={"sheetNames": ["Summary ", "ঔষধ শিডিউল ", "বি�
 function freshBatch(name){
  return {id:"b"+Date.now().toString(36)+Math.random().toString(36).slice(2,6),name:name,status:"active",createdAt:new Date().toISOString().slice(0,10),closedAt:null,
  startDate:SEED.startDate||"",chicks:Number(SEED.chicks||0),dead:0,chickPrice:0,deaths:[],
- feed:[],medicine:[],workers:[],workerSalary:0,other:[],litter:[],rent:[],sales:[],litterSales:[],otherSales:{litter:[],chicken:[],bag:[],feed:[]},medSchedule:[],notes:[]};
+ feed:[],medicine:[],workers:[],workerSalary:0,other:[],litter:[],rent:[],sales:[],litterSales:[],otherSales:{litter:[],chicken:[],bag:[],feed:[]},medSchedule:[],notes:[],gifts:[]};
 }
 function migrateWorkers(b){
  if(Array.isArray(b.workers)){
@@ -493,16 +552,10 @@ let state=store.batches.find(b=>b.id===store.activeId)||store.batches[0];
 const money=n=>"৳"+Number(n||0).toLocaleString("en-BD",{maximumFractionDigits:2});
 function save(){localStorage.setItem("poultryBatchesV2",JSON.stringify(store))}
 function switchBatch(id){let b=store.batches.find(x=>x.id===id);if(!b)return;store.activeId=id;state=b;save();render()}
-function newBatch(){
- let name=prompt("নতুন ব্যাচের নাম দিন","ব্যাচ "+(store.batches.length+1));
- if(name===null)return;
- if(!name.trim())name="ব্যাচ "+(store.batches.length+1);
- let b=freshBatch(name.trim());
- store.batches.push(b);store.activeId=b.id;state=b;save();render();showToast("✅ নতুন ব্যাচ শুরু হয়েছে");
-}
+function newBatch(){openNameModal("newBatch",null,"➕ নতুন ব্যাচ শুরু করুন","ব্যাচ "+(store.batches.length+1))}
 function toggleBatchStatus(){
  if(state.status==="closed"){state.status="active";state.closedAt=null;showToast("🔓 ব্যাচ পুনরায় চালু হয়েছে");}
- else{if(!confirm("এই ব্যাচটি সম্পন্ন হিসেবে চিহ্নিত করবেন? পরে চাইলে আবার চালু করা যাবে।"))return;state.status="closed";state.closedAt=new Date().toISOString().slice(0,10);showToast("✅ ব্যাচ সম্পন্ন হিসেবে চিহ্নিত হয়েছে");}
+ else{if(closeStats().live>0){showToast("❌ এখনও "+livePcs()+" টি মুরগি অবশিষ্ট — ক্লোজ করা যাবে না");return;}if(!confirm("এই ব্যাচটি সম্পন্ন হিসেবে চিহ্নিত করবেন? পরে চাইলে আবার চালু করা যাবে।"))return;state.status="closed";state.closedAt=new Date().toISOString().slice(0,10);showToast("✅ ব্যাচ সম্পন্ন হিসেবে চিহ্নিত হয়েছে");}
  save();render();
 }
 function deleteBatch(id){
@@ -521,6 +574,8 @@ function batchSummary(b){
  let rent=(b.rent||[]).reduce((s,r)=>s+(+r.amt||0),0);
  let chicksCost=(+b.chicks||0)*(+b.chickPrice||0);
  let sales=(b.sales||[]).reduce((s,r)=>s+(+r.weight||0)*(+r.rate||0),0);
+ sales+=(b.litterSales||[]).reduce((s,r)=>s+(+r.qty||0)*(+r.rate||0),0);
+ if(b.otherSales)Object.keys(b.otherSales).forEach(k=>{sales+=(b.otherSales[k]||[]).reduce((s,r)=>s+(+r.qty||0)*(+r.rate||0),0)});
  let cost=feed+medicine+other+litter+workers+rent+chicksCost;
  let dead=(b.deaths||[]).reduce((s,r)=>s+(+r.qty||0),0)||(+b.dead||0);
  return {cost,sales,profit:sales-cost,dead,chicks:+b.chicks||0};
@@ -559,13 +614,18 @@ function days(){if(!state.startDate)return 0;let a=new Date(state.startDate+"T00
 function total(k){return (state[k]||[]).reduce((s,r)=>s+(+r.qty||0)*(+r.rate||0),0)}
 function rentTotal(){return (state.rent||[]).reduce((s,r)=>s+(+r.amt||0),0)}
 function salesTotal(){let ch=state.sales.reduce((s,r)=>s+(+r.weight||0)*(+r.rate||0),0);let lt=(state.litterSales||[]).reduce((s,r)=>s+(+r.qty||0)*(+r.rate||0),0);return ch+lt;}
+function retailPcs(){return sumOf(state.otherSales&&state.otherSales.chicken,r=>r.pcs)}
+function giftPcs(){return sumOf(state.gifts,r=>r.qty)}
+function soldPcs(){return sumOf(state.sales,r=>r.qty)+retailPcs()}
+function livePcs(){let d=deathTotal()||(+state.dead||0);return Math.max(0,(+state.chicks||0)-d-soldPcs()-giftPcs())}
+function allWeightStats(){let q=0,w=0;(state.sales||[]).forEach(r=>{q+=+r.qty||0;w+=+r.weight||0});((state.otherSales&&state.otherSales.chicken)||[]).forEach(r=>{if(+r.pcs>0){q+=+r.pcs;w+=+r.qty||0}});(state.gifts||[]).forEach(r=>{if(+r.qty>0){q+=+r.qty;w+=+r.weight||0}});return{q:q,w:w,avg:q?w/q:0}}
 function renderDashboard(){
 let c={feed:total("feed"),medicine:total("medicine"),workers:workersTotal(),other:total("other"),litter:total("litter"),rent:rentTotal(),sales:salesTotal(),chicks:(+state.chicks||0)*(+state.chickPrice||0)};
 c.cost=c.feed+c.medicine+c.workers+c.other+c.litter+c.rent+c.chicks;c.otherSalesTotal=otherSalesGrand();c.totalIncome=c.sales+c.otherSalesTotal;c.profit=c.totalIncome-c.cost;
-state.dead=deathTotal()||(+state.dead||0); let live=Math.max(0,(+state.chicks||0)-(+state.dead||0));
+state.dead=deathTotal()||(+state.dead||0); let soldQ=soldPcs();let live=livePcs();
 document.getElementById("today").textContent=new Date().toLocaleDateString("bn-BD");document.getElementById("batchNameText").textContent=state.name+(state.status==="closed"?" (সম্পন্ন)":"");
 document.getElementById("age").textContent=days()+" দিন";document.getElementById("startText").textContent=state.startDate||"নেই";
-kAge.textContent=days()+" দিন";kChicks.textContent=state.chicks;kDead.textContent=state.dead;kLive.textContent=live;
+kAge.textContent=days()+" দিন";kChicks.textContent=state.chicks;kDead.textContent=state.dead;kLive.textContent=live;kSold.textContent=soldQ;{let oh=document.getElementById("outHint"),gp=giftPcs();if(oh){oh.style.display=gp?"block":"none";oh.innerHTML="🎁 গিফট / নিজের জন্য: <b>"+gp+" টি</b> (খামারের মুরগি থেকে বাদ গেছে)"}}
 kFeed.textContent=money(c.feed);kMed.textContent=money(c.medicine);kWorker.textContent=money(c.workers);kOther.textContent=money(c.other);kLitter.textContent=money(c.litter);kRent.textContent=money(c.rent);kSales.textContent=money(c.totalIncome);kProfit.textContent=money(c.profit);
 let pc=document.getElementById("kProfitCard");
 if(pc){pc.className="card metric "+(c.profit>=0?"m-profit":"m-loss");}
@@ -575,8 +635,7 @@ if(pi){pi.style.background=c.profit>=0?"linear-gradient(135deg,#059669,#047857)"
 let bsb=document.getElementById("batchStatusBadge");
 if(bsb){bsb.textContent=state.status==="closed"?"✅ সম্পন্ন":"🟢 চলমান ব্যাচ";}
 kDeathRate.textContent=(state.chicks?(state.dead/state.chicks*100).toFixed(2):0)+"%";
-let liveChicks=(state.chicks||0)-(state.dead||0)-state.sales.reduce((s,r)=>s+(+r.qty||0),0);
-if(liveChicks<0)liveChicks=0;
+let liveChicks=Math.max(0,(+state.chicks||0)-(+state.dead||0));
 kCostPerKg.textContent=liveChicks?money(c.cost/liveChicks)+"  প্রতি মুরগি":"৳০";
 let rows=[
  ["🐣 বাচ্চা ক্রয়",c.chicks,""],["🌾 ফিড",c.feed,""],["💊 Medicine",c.medicine,""],["👷 কর্মচারী",c.workers,""],
@@ -595,9 +654,9 @@ function addDeath(){
 }
 function renderDeaths(){
  let a=state.deaths||[];
- deathTable.innerHTML=a.length?a.map((r,i)=>`<tr><td>${r.date||""}</td><td>${r.qty}</td><td>${r.reason||""}</td><td>${r.note||""}</td><td><button class="del" onclick="del('deaths',${i})">মুছুন</button></td></tr>`).join(""):`<tr><td colspan="5" class="empty">এখনও মৃত বাচ্চার কোনো তথ্য যোগ করা হয়নি</td></tr>`;
+ deathTable.innerHTML=a.length?a.map((r,i)=>`<tr><td>${r.date||""}</td><td>${r.qty}</td><td>${r.reason||""}</td><td>${r.note||""}</td><td style="white-space:nowrap"><button class="edt" onclick="openEdit('deaths',${i})">✏️</button><button class="del" onclick="del('deaths',${i})">মুছুন</button></td></tr>`).join(""):`<tr><td colspan="5" class="empty">এখনও মৃত বাচ্চার কোনো তথ্য যোগ করা হয়নি</td></tr>`;
 }
-function renderFarm(){fDate.value=state.startDate;fChicks.value=state.chicks;fPrice.value=state.chickPrice;fDead.value=state.dead;farmTable.innerHTML=`<tr><td>বয়স</td><td>${days()} দিন</td></tr><tr><td>মোট বাচ্চা</td><td>${state.chicks}</td></tr><tr><td>মৃত</td><td>${state.dead}</td></tr><tr><td>বর্তমান</td><td>${Math.max(0,state.chicks-state.dead)}</td></tr><tr><td>মৃত্যুর হার</td><td>${state.chicks?(state.dead/state.chicks*100).toFixed(2):0}%</td></tr>`}
+function renderFarm(){fDate.value=state.startDate;fChicks.value=state.chicks;fPrice.value=state.chickPrice;fDead.value=state.dead;farmTable.innerHTML=`<tr><td>বয়স</td><td>${days()} দিন</td></tr><tr><td>মোট বাচ্চা</td><td>${state.chicks}</td></tr><tr><td>মৃত</td><td>${state.dead}</td></tr><tr><td>বিক্রিত (পাইকারি + খুচরা)</td><td>${soldPcs()}</td></tr><tr><td>গিফট / নিজের জন্য</td><td>${giftPcs()}</td></tr><tr><td>বর্তমান (খামারে)</td><td>${livePcs()}</td></tr><tr><td>মৃত্যুর হার</td><td>${state.chicks?(state.dead/state.chicks*100).toFixed(2):0}%</td></tr>`}
 const configs={
 feed:["🌾 ফিড","ফিড","বস্তা"],medicine:["💊 Medicine","Medicine","পরিমাণ"],other:["🧾 বিভিন্ন খরচ","বিবরণ","পরিমাণ"],litter:["🪵 কাঠের গুড়া","বিবরণ","পরিমাণ"]
 };
@@ -621,7 +680,7 @@ host.insertAdjacentHTML("beforeend",`<section id="sales" class="page"><div class
 <div class="fields"><label>দর/কেজি<input id="salesRate" type="number" step=".01" oninput="renderTempPallas()"></label><label>পরিশোধ কত<input id="salesPaid" type="number" min="0" step=".01" placeholder="যত টাকা পেয়েছেন"></label></div>
 <button class="add" onclick="addSale()" style="margin-top:10px">✅ সম্পূর্ণ বিক্রি সংরক্ষণ করুন</button>
 </div>
-<div class="section">বিক্রির টেবিল</div><div class="wrap"><table><thead><tr><th>তারিখ</th><th>ক্রেতা</th><th>মুরগি</th><th>ওজন</th><th>দর</th><th>মোট</th><th>পরিশোধ</th><th>বাকি</th><th>গড় ওজন</th><th>অ্যাকশন</th></tr></thead><tbody id="salesTable"></tbody></table></div>
+<div class="hint" id="avgAllHint" style="margin-top:10px"></div><div class="section">বিক্রির টেবিল</div><div class="wrap"><table><thead><tr><th>তারিখ</th><th>ক্রেতা</th><th>মুরগি</th><th>ওজন</th><th>দর</th><th>মোট</th><th>পরিশোধ</th><th>বাকি</th><th>গড় ওজন</th><th>অ্যাকশন</th></tr></thead><tbody id="salesTable"></tbody></table></div>
 <!-- লিটার বিক্রি hidden elements for backward compat -->
 <div style="display:none"><input id="lsaleDate"><input id="lsaleQty"><input id="lsaleRate"><input id="lsaleBuyer"><span id="lsaleTotal"></span><tbody id="lsaleTable"></tbody></div>
 </section>
@@ -647,9 +706,13 @@ function renderTempPallas(){
 function toggleDetails(i){let el=document.getElementById("pallaDetail"+i);if(el)el.style.display=el.style.display==="none"?"table-row":"none"}
 function addSale(){
  if(!tempPallas.length){alert("অন্তত একটি পাল্লা যোগ করুন");return;}
+ if(!(+salesRate.value>0)){alert("দর/কেজি লিখুন");return;}
  let qty=tempPallas.reduce((s,p)=>s+p.qty,0),weight=tempPallas.reduce((s,p)=>s+p.weight,0);
- state.sales.push({date:salesDate.value,customer:salesCustomer.value.trim(),qty,weight,rate:+salesRate.value||0,paid:+salesPaid.value||0,pallas:tempPallas.slice()});
- tempPallas=[];salesCustomer.value="";salesPaid.value="";
+ state.sales=state.sales||[];
+ {let avail=livePcs();if(qty>avail&&!confirm("⚠️ বিক্রির মুরগি ("+qty+" টি) বর্তমান মুরগির ("+avail+" টি) চেয়ে বেশি। তবুও সংরক্ষণ করবেন?"))return;}
+ state.sales.push({date:salesDate.value||new Date().toISOString().slice(0,10),customer:salesCustomer.value.trim(),qty,weight,rate:+salesRate.value||0,paid:+salesPaid.value||0,pallas:tempPallas.slice()});
+ tempPallas=[];salesCustomer.value="";salesPaid.value="";salesRate.value="";
+ save();render();renderTempPallas();showToast("✅ বিক্রি সংরক্ষণ হয়েছে");
 }
 function addLitterSale(){
   if(!lsaleQty.value||!lsaleRate.value){alert('পরিমাণ ও দর দিন');return;}
@@ -662,16 +725,17 @@ function delLitter(i){if(!confirm('মুছে ফেলতে চান?'))ret
  save();render();
 }
 function addRent(){let amt=+rentAmt.value||0;if(amt<=0)return;state.rent=state.rent||[];state.rent.push({date:rentDate.value,desc:rentDesc.value,amt:amt,paid:+rentPaid.value||0});save();render()}
-function del(k,i){if(!confirm("এই তথ্যটি মুছে ফেলতে চান?"))return;state[k].splice(i,1);save();render();showToast("🗑️ মুছে ফেলা হয়েছে")}
+function del(k,i){if(!confirm("এই তথ্যটি মুছে ফেলতে চান?"))return;state[k].splice(i,1);if(k==="deaths")state.dead=deathTotal();save();render();showToast("🗑️ মুছে ফেলা হয়েছে")}
 function renderTable(k){
 let a=state[k]||[];let el=document.getElementById(k+"Table");
-el.innerHTML=a.length?a.map((r,i)=>`<tr><td>${r.date||""}</td><td>${r.name||""}</td><td>${r.qty||0}</td><td>${money(r.rate)}</td><td>${money((r.qty||0)*(r.rate||0))}</td><td><button class="del" onclick="del('${k}',${i})">মুছুন</button></td></tr>`).join(""):`<tr><td colspan="6" class="empty">এখনও কোনো হিসাব যোগ করা হয়নি</td></tr>`;
+el.innerHTML=a.length?a.map((r,i)=>`<tr><td>${r.date||""}</td><td>${r.name||""}</td><td>${r.qty||0}</td><td>${money(r.rate)}</td><td>${money((r.qty||0)*(r.rate||0))}</td><td style="white-space:nowrap"><button class="edt" onclick="openEdit('${k}',${i})">✏️</button><button class="del" onclick="del('${k}',${i})">মুছুন</button></td></tr>`).join(""):`<tr><td colspan="6" class="empty">এখনও কোনো হিসাব যোগ করা হয়নি</td></tr>`;
 }
-function renderSales(){salesTable.innerHTML=state.sales.length?state.sales.map((r,i)=>{let tot=r.weight*r.rate;let paid=+r.paid||0;let due=tot-paid;let pallas=r.pallas||[];let pc=pallas.length;let detail=pallas.map((p,pi)=>`<tr><td style="padding:4px 8px">পাল্লা ${pi+1}</td><td style="padding:4px 8px">${p.qty} টি</td><td style="padding:4px 8px">${p.weight} কেজি</td><td style="padding:4px 8px">গড়: ${(p.weight/p.qty||0).toFixed(2)} কেজি/মুরগি</td></tr>`).join("");let mainRow=`<tr><td>${r.date||""}</td><td>${r.customer||"—"}</td><td>${r.qty}${pc?` <span style="opacity:.6;font-size:11px">(${pc} পাল্লা)</span>`:""}</td><td>${r.weight}</td><td>${money(r.rate)}</td><td>${money(tot)}</td><td>${money(paid)}</td><td>${due>0?money(due):"—"}</td><td>${(r.weight/r.qty||0).toFixed(2)} কেজি</td><td>${pc?`<button class="tbtn-light" style="padding:5px 8px;font-size:11px;margin-right:4px" onclick="toggleDetails(${i})">বিস্তারিত</button>`:""}<button class="del" onclick="del('sales',${i})">মুছুন</button></td></tr>`;let detailRow=pc?`<tr id="pallaDetail${i}" style="display:none"><td colspan="10" style="padding:0;background:#f7f9fa"><table style="width:100%;font-size:12px">${detail}</table></td></tr>`:"";return mainRow+detailRow}).join(""):`<tr><td colspan="10" class="empty">এখনও কোনো বিক্রি যোগ করা হয়নি</td></tr>`;
+function renderSales(){if(!salesDate.value)salesDate.value=new Date().toISOString().slice(0,10);salesTable.innerHTML=state.sales.length?state.sales.map((r,i)=>{let tot=r.weight*r.rate;let paid=+r.paid||0;let due=tot-paid;let pallas=r.pallas||[];let pc=pallas.length;let detail=pallas.map((p,pi)=>`<tr><td style="padding:4px 8px">পাল্লা ${pi+1}</td><td style="padding:4px 8px">${p.qty} টি</td><td style="padding:4px 8px">${p.weight} কেজি</td><td style="padding:4px 8px">গড়: ${(p.weight/p.qty||0).toFixed(2)} কেজি/মুরগি</td></tr>`).join("");let mainRow=`<tr><td>${r.date||""}</td><td>${r.customer||"—"}</td><td>${r.qty}${pc?` <span style="opacity:.6;font-size:11px">(${pc} পাল্লা)</span>`:""}</td><td>${r.weight}</td><td>${money(r.rate)}</td><td>${money(tot)}</td><td>${money(paid)}</td><td>${due>0?money(due):"—"}</td><td>${(r.weight/r.qty||0).toFixed(2)} কেজি</td><td>${pc?`<button class="tbtn-light" style="padding:5px 8px;font-size:11px;margin-right:4px" onclick="toggleDetails(${i})">বিস্তারিত</button>`:""}<button class="edt" onclick="openEdit('sales',${i})">✏️</button><button class="del" onclick="del('sales',${i})">মুছুন</button></td></tr>`;let detailRow=pc?`<tr id="pallaDetail${i}" style="display:none"><td colspan="10" style="padding:0;background:#f7f9fa"><table style="width:100%;font-size:12px">${detail}</table></td></tr>`:"";return mainRow+detailRow}).join(""):`<tr><td colspan="10" class="empty">এখনও কোনো বিক্রি যোগ করা হয়নি</td></tr>`;
 let names=[...new Set(state.sales.map(r=>r.customer).filter(Boolean))];
 customerList.innerHTML=names.map(n=>`<option value="${n}">`).join("");
+{let a=allWeightStats(),h=document.getElementById("avgAllHint");if(h)h.innerHTML=a.q?`⚖️ <b>মোট গড় ওজন (পাইকারি + খুচরা + গিফট/নিজের): ${a.avg.toFixed(2)} কেজি/মুরগি</b><br>মোট ${fmt(a.q,0)} টি • মোট ওজন ${fmt(a.w)} কেজি`:""}
 }
-function renderRent(){let a=state.rent||[];rentTable.innerHTML=a.length?a.map((r,i)=>`<tr><td>${r.date||""}</td><td>${r.desc||""}</td><td>${money(r.amt)}</td><td>${money(r.paid)}</td><td>${money((r.amt||0)-(r.paid||0))}</td><td><button class="del" onclick="del('rent',${i})">মুছুন</button></td></tr>`).join(""):`<tr><td colspan="6" class="empty">এখনও কোনো ভাড়ার হিসাব যোগ করা হয়নি</td></tr>`}
+function renderRent(){let a=state.rent||[];rentTable.innerHTML=a.length?a.map((r,i)=>`<tr><td>${r.date||""}</td><td>${r.desc||""}</td><td>${money(r.amt)}</td><td>${money(r.paid)}</td><td>${money((r.amt||0)-(r.paid||0))}</td><td style="white-space:nowrap"><button class="edt" onclick="openEdit('rent',${i})">✏️</button><button class="del" onclick="del('rent',${i})">মুছুন</button></td></tr>`).join(""):`<tr><td colspan="6" class="empty">এখনও কোনো ভাড়ার হিসাব যোগ করা হয়নি</td></tr>`}
 
 function renderLitterSales(){
   let ls=state.litterSales||[];
@@ -681,7 +745,7 @@ function renderLitterSales(){
   let ltTbl=document.getElementById("lsaleTable");
   if(ltTbl)ltTbl.innerHTML=ls.length?ls.map((r,i)=>`<tr><td>${r.date||""}</td><td>${r.qty} কেজি</td><td>${money(r.rate)}</td><td>${money((+r.qty||0)*(+r.rate||0))}</td><td>${r.buyer||"—"}</td><td><button class="del" onclick="delLitter(${i})">মুছুন</button></td></tr>`).join(""):`<tr><td colspan="6" class="empty">এখনও কোনো লিটার বিক্রি যোগ করা হয়নি</td></tr>`;
 }
-function renderReport(){let c={feed:total("feed"),medicine:total("medicine"),workers:workersTotal(),other:total("other"),litter:total("litter"),rent:rentTotal(),chicks:state.chicks*state.chickPrice,sales:salesTotal()};let cost=c.feed+c.medicine+c.workers+c.other+c.litter+c.rent+c.chicks;reportTable.innerHTML=[["বাচ্চা",state.chicks+" টি",c.chicks],["মৃত বাচ্চা",state.dead+" টি",0],["ফিড","",c.feed],["Medicine","",c.medicine],["কর্মচারী","",c.workers],["বিভিন্ন খরচ","",c.other],["কাঠের গুড়া","",c.litter],["পরিবহন ভাড়া","",c.rent],["মোট খরচ","",cost],["মোট বিক্রি",state.sales.reduce((s,r)=>s+r.qty,0)+" টি",c.sales],["নিট লাভ/ক্ষতি","",c.sales-cost]].map(x=>`<tr class="report-total"><td>${x[0]}</td><td>${x[1]}</td><td>${money(x[2])}</td></tr>`).join("")}
+function renderReport(){let c={feed:total("feed"),medicine:total("medicine"),workers:workersTotal(),other:total("other"),litter:total("litter"),rent:rentTotal(),chicks:state.chicks*state.chickPrice,sales:salesTotal()};let cost=c.feed+c.medicine+c.workers+c.other+c.litter+c.rent+c.chicks;reportTable.innerHTML=[["বাচ্চা",state.chicks+" টি",c.chicks],["মৃত বাচ্চা",state.dead+" টি",0],["ফিড","",c.feed],["Medicine","",c.medicine],["কর্মচারী","",c.workers],["বিভিন্ন খরচ","",c.other],["কাঠের গুড়া","",c.litter],["পরিবহন ভাড়া","",c.rent],["মোট খরচ","",cost],["মুরগি বিক্রি",state.sales.reduce((s,r)=>s+(+r.qty||0),0)+" টি",c.sales],["গিফট / নিজের খাওয়া",giftPcs()+" টি ("+fmt(sumOf(state.gifts,r=>r.weight))+" কেজি)",0],["অন্যান্য বিক্রি","",otherSalesGrand()],["মোট আয়","",c.sales+otherSalesGrand()],["নিট লাভ/ক্ষতি","",c.sales+otherSalesGrand()-cost]].map(x=>`<tr class="report-total"><td>${x[0]}</td><td>${x[1]}</td><td>${money(x[2])}</td></tr>`).join("")}
 function renderSheets(){sheetTable.innerHTML=SEED.sheetMeta.map((x,i)=>`<tr><td>${i+1}</td><td>${x.name}</td><td>${x.rows}</td><td>${x.cols}</td></tr>`).join("")}
 function workersTotal(){return (state.workers||[]).reduce((s,r)=>s+(+r.amount||0),0)}
 function saveWorkerSalary(){state.workerSalary=+workerSalaryInput.value||0;save();render();showToast("✅ বেতন সংরক্ষণ করা হয়েছে")}
@@ -699,7 +763,7 @@ function renderWorkers(){
  wTaken.textContent=money(taken);
  wRemain.textContent=money(remain);
  let a=state.workers||[];
- workersTable.innerHTML=a.length?a.map((r,i)=>`<tr><td>${r.date||""}</td><td>${money(r.amount)}</td><td>${r.note||""}</td><td><button class="del" onclick="del('workers',${i})">মুছুন</button></td></tr>`).join(""):`<tr><td colspan="4" class="empty">এখনও কোনো হিসাব যোগ করা হয়নি</td></tr>`;
+ workersTable.innerHTML=a.length?a.map((r,i)=>`<tr><td>${r.date||""}</td><td>${money(r.amount)}</td><td>${r.note||""}</td><td style="white-space:nowrap"><button class="edt" onclick="openEdit('workers',${i})">✏️</button><button class="del" onclick="del('workers',${i})">মুছুন</button></td></tr>`).join(""):`<tr><td colspan="4" class="empty">এখনও কোনো হিসাব যোগ করা হয়নি</td></tr>`;
 }
 function renderBatchBar(){
  batchSelect.innerHTML=store.batches.map(b=>`<option value="${b.id}" ${b.id===store.activeId?"selected":""}>${b.status==="closed"?"✅ ":"🟢 "}${b.name}</option>`).join("");
@@ -711,11 +775,13 @@ function renderBatchesPage(){
   let s=batchSummary(b);
   let period=(b.startDate||"শুরুর তারিখ নেই")+" → "+(b.status==="closed"?(b.closedAt||"সমাপ্ত"):"চলমান");
   return `<div class="batch-card">
-   <div class="bhead"><b>${b.name}</b><span class="${b.id===store.activeId?"badge-active":"badge-closed"}">${b.id===store.activeId?"🟢 সক্রিয়":(b.status==="closed"?"✅ সম্পন্ন":"⏸️ নিষ্ক্রিয়")}</span></div>
+   <div class="bhead"><b>${b.name}</b><span class="${b.id===store.activeId?"badge-active":"badge-closed"}">${b.status==="closed"?"✅ সম্পন্ন":(b.id===store.activeId?"🟢 সক্রিয়":"⏸️ নিষ্ক্রিয়")}</span></div>
    <div class="bstat">📅 ${period}</div>
+   ${b.closeNote?`<div class="bstat">📝 ${esc(b.closeNote)}</div>`:""}
    <div class="bstat">🐣 বাচ্চা: ${s.chicks} • ☠️ মৃত: ${s.dead} • 💰 বিক্রি: ${money(s.sales)} • 📈 লাভ/ক্ষতি: ${money(s.profit)}</div>
    <div class="toolbar" style="margin-top:9px">
-   ${b.id!==store.activeId?`<button class="tbtn-light" onclick="switchBatch('${b.id}')">👁️ দেখুন</button>`:`<button class="tbtn-light" onclick="toggleBatchStatus()">${b.status==="closed"?"🔓 পুনরায় চালু":"✅ সম্পন্ন করুন"}</button>`}
+   ${b.id!==store.activeId?`<button class="tbtn-light" onclick="switchBatch('${b.id}')">👁️ দেখুন</button>`:`<button class="tbtn-light" onclick="${b.status==="closed"?"toggleBatchStatus()":"openClose()"}">${b.status==="closed"?"🔓 পুনরায় চালু":"🔒 ব্যাচ ক্লোজ"}</button>`}
+   <button class="tbtn-light" onclick="renameBatch('${b.id}')">✏️ নাম বদলান</button>
    ${store.batches.length>1?`<button class="tbtn-danger" onclick="deleteBatch('${b.id}')">🗑️ মুছুন</button>`:""}
    </div>
   </div>`;
@@ -741,6 +807,9 @@ function renderCustomers(){
    <div class="bstat">💰 মোট: ${money(c.total)} • ✅ পরিশোধ: ${money(c.paid)} • ⏳ বাকি: ${money(Math.max(0,due))}</div>
   </div>`;
  }).join(""):`<div class="hint">এখনও কোনো বিক্রি যোগ করা হয়নি</div>`;
+ let gm={};(state.gifts||[]).forEach(r=>{let n=(r.name||"").trim()||"নাম নেই";if(!gm[n])gm[n]={q:0,w:0,k:{}};gm[n].q+=+r.qty||0;gm[n].w+=+r.weight||0;gm[n].k[r.kind||"গিফট"]=1});
+ let gn=Object.keys(gm);
+ if(gn.length)host.innerHTML+=`<div class="section" style="margin-top:16px">🎁 গিফট / নিজের জন্য</div>`+gn.map(n=>{let c=gm[n];return `<div class="batch-card"><div class="bhead"><b>${esc(n)}</b><span class="badge-active">${esc(Object.keys(c.k).join(", "))}</span></div><div class="bstat">🐔 ${c.q} টি • ⚖️ ${c.w.toFixed(2)} কেজি • 📏 গড় ${c.q?(c.w/c.q).toFixed(2):"0"} কেজি/মুরগি</div></div>`}).join("");
 }
 function addLitterSale2(){
   let qty=+document.getElementById("lsaleQty").value||0;
@@ -783,13 +852,13 @@ function updateMsAge(){
   let msAgeEl=document.getElementById("msAge");
   if(!msDateEl||!msAgeEl)return;
   let d=msDateEl.value;
-  if(!d){msAgeEl.value="";return;}
-  if(!state.startDate){msAgeEl.value="শুরুর তারিখ নেই";return;}
+  if(!d){msAgeEl.textContent="— দিন";return;}
+  if(!state.startDate){msAgeEl.textContent="শুরুর তারিখ নেই";return;}
   let start=new Date(state.startDate+"T00:00:00");
   let sel=new Date(d+"T00:00:00");
   start.setHours(0,0,0,0);sel.setHours(0,0,0,0);
   let diff=Math.max(0,Math.floor((sel-start)/86400000));
-  msAgeEl.value=diff+" দিন";
+  msAgeEl.textContent=diff+" দিন";
 }
 function renderMedSchedule(){
   let msDateEl=document.getElementById("msDate");
@@ -807,7 +876,7 @@ function renderMedSchedule(){
       <td>${m.name||"—"}${m.note?" ("+m.note+")":""}</td><td>${m.dose||"—"}</td>
       <td>${n.name||"—"}${n.note?" ("+n.note+")":""}</td><td>${n.dose||"—"}</td>
       <td>${nt.name||"—"}${nt.note?" ("+nt.note+")":""}</td><td>${nt.dose||"—"}</td>
-      <td><button class="del" onclick="delMedSchedule(${i})">মুছুন</button></td>
+      <td style="white-space:nowrap"><button class="edt" onclick="openEdit('medSchedule',${i})">✏️</button><button class="del" onclick="delMedSchedule(${i})">মুছুন</button></td>
     </tr>`;
   }).join(""):`<tr><td colspan="9" class="empty">এখনও কোনো মেডিসিন শিডিউল যোগ করা হয়নি</td></tr>`;
 }
@@ -838,7 +907,7 @@ function renderNotes(){
           ${r.title?`<div style="font-size:15px;font-weight:900;color:#075d3d;margin-bottom:6px">📌 ${r.title}</div>`:""}
           ${r.text?`<div style="font-size:13px;line-height:1.6;white-space:pre-wrap;color:#182230">${r.text}</div>`:""}
         </div>
-        <button class="del" onclick="delNote(${i})" style="flex-shrink:0">মুছুন</button>
+        <div style="display:flex;gap:6px;flex-shrink:0"><button class="edt" onclick="openEdit('notes',${i})">✏️ এডিট</button><button class="del" onclick="delNote(${i})">মুছুন</button></div>
       </div>
     </div>`;
   }).join("");
@@ -846,35 +915,90 @@ function renderNotes(){
 
 // ── অন্যান্য বিক্রি ──
 const osCfg={
-  litter:{date:"os_lDate",qty:"os_lQty",rate:"os_lRate",buyer:"os_lBuyer",total:"os_lTotal",table:"os_lTable",sum:"os_lSum",label:"লিটার বিক্রি"},
-  chicken:{date:"os_cDate",qty:"os_cQty",rate:"os_cRate",buyer:"os_cBuyer",total:"os_cTotal",table:"os_cTable",sum:"os_cSum",label:"খুচরা মুরগি বিক্রি"},
-  bag:{date:"os_bDate",qty:"os_bQty",rate:"os_bRate",buyer:"os_bBuyer",total:"os_bTotal",table:"os_bTable",sum:"os_bSum",label:"বস্তা বিক্রি"},
-  feed:{date:"os_fDate",qty:"os_fQty",rate:"os_fRate",buyer:"os_fBuyer",total:"os_fTotal",table:"os_fTable",sum:"os_fSum",label:"ফিড বিক্রি"}
+  litter:{date:"os_lDate",qty:"os_lQty",rate:"os_lRate",buyer:"os_lBuyer",total:"os_lTotal",table:"os_lTable",sum:"os_lSum",live:"os_lLive",label:"লিটার বিক্রি"},
+  chicken:{date:"os_cDate",qty:"os_cQty",rate:"os_cRate",buyer:"os_cBuyer",total:"os_cTotal",table:"os_cTable",sum:"os_cSum",live:"os_cLive",label:"খুচরা মুরগি বিক্রি"},
+  bag:{date:"os_bDate",qty:"os_bQty",rate:"os_bRate",buyer:"os_bBuyer",total:"os_bTotal",table:"os_bTable",sum:"os_bSum",live:"os_bLive",label:"বস্তা বিক্রি"},
+  feed:{date:"os_fDate",qty:"os_fQty",rate:"os_fRate",buyer:"os_fBuyer",total:"os_fTotal",table:"os_fTable",sum:"os_fSum",live:"os_fLive",label:"ফিড বিক্রি"}
 };
 function osInit(){Object.keys(osCfg).forEach(k=>{let el=document.getElementById(osCfg[k].date);if(el&&!el.value)el.value=new Date().toISOString().slice(0,10);})}
+function osLive(type){
+  let c=osCfg[type],g=id=>+document.getElementById(id).value||0,el=document.getElementById(c.live);if(!el)return;
+  let rate=g(c.rate),t=0,extra="";
+  if(type==="feed"){let kg=g("os_fBags")*g("os_fBagKg")+g("os_fLoose");t=kg*rate;extra=kg?" ("+fmt(kg)+" কেজি)":""}
+  else{let q=g(c.qty);t=q*rate;if(type==="chicken"){let p=g("os_cPcs");if(p&&q)extra=" (গড় "+(q/p).toFixed(2)+" কেজি/পিস)"}}
+  el.innerHTML=money(t)+extra;
+}
+function osLiveAll(){Object.keys(osCfg).forEach(osLive)}
 function addOtherSale(type){
-  let c=osCfg[type];
-  let qty=+document.getElementById(c.qty).value||0;
-  let rate=+document.getElementById(c.rate).value||0;
-  if(!qty||!rate){showToast("❌ পরিমাণ ও দর দিন");return;}
+  let c=osCfg[type],v=id=>document.getElementById(id);
+  let rate=+v(c.rate).value||0;
+  let rec={date:v(c.date).value,rate:rate,buyer:v(c.buyer).value||""};
+  if(type==="feed"){
+    let bags=+v("os_fBags").value||0,loose=+v("os_fLoose").value||0,bagKg=+v("os_fBagKg").value||0;
+    if(bags>0&&!(bagKg>0)){showToast("❌ প্রতি বস্তায় কত কেজি তা দিন");return;}
+    let kg=bags*bagKg+loose;
+    if(!kg||!rate){showToast("❌ বস্তা/কেজি ও দর দিন");return;}
+    Object.assign(rec,{bags:bags,loose:loose,bagKg:bagKg,qty:kg});
+  }else{
+    let qty=+v(c.qty).value||0;
+    if(!qty||!rate){showToast("❌ পরিমাণ ও দর দিন");return;}
+    rec.qty=qty;
+    if(type==="chicken"){
+      let pcs=Math.round(+v("os_cPcs").value||0);
+      if(pcs<=0){showToast("❌ মুরগির পিস দিন");return;}
+      let avail=livePcs();
+      if(pcs>avail&&!confirm("⚠️ খুচরা বিক্রির মুরগি ("+pcs+" টি) খামারের বর্তমান মুরগির ("+avail+" টি) চেয়ে বেশি। তবুও সংরক্ষণ করবেন?"))return;
+      rec.pcs=pcs;
+    }
+  }
   if(!state.otherSales)state.otherSales={litter:[],chicken:[],bag:[],feed:[]};
   if(!state.otherSales[type])state.otherSales[type]=[];
-  state.otherSales[type].push({
-    date:document.getElementById(c.date).value,
-    qty:qty,rate:rate,
-    buyer:document.getElementById(c.buyer).value||""
-  });
-  document.getElementById(c.qty).value="";
-  document.getElementById(c.rate).value="";
-  document.getElementById(c.buyer).value="";
-  save();renderOtherSales();
+  state.otherSales[type].push(rec);
+  if(type==="feed"){v("os_fBags").value="";v("os_fLoose").value="";}
+  else{v(c.qty).value="";if(type==="chicken")v("os_cPcs").value="";}
+  v(c.rate).value="";v(c.buyer).value="";
+  save();render();
   showToast("✅ "+c.label+" যোগ হয়েছে");
 }
 function delOtherSale(type,i){
   if(!confirm("মুছে ফেলবেন?"))return;
   state.otherSales[type].splice(i,1);
-  save();renderOtherSales();
+  save();render();
   showToast("🗑️ মুছে ফেলা হয়েছে");
+}
+// ── গিফট / নিজের খাওয়া ──
+function giftLive(){
+  let q=+document.getElementById("os_gPcs").value||0,w=+document.getElementById("os_gWeight").value||0;
+  document.getElementById("os_gLive").innerHTML="⚖️ গড় ওজন: <b>"+(q&&w?(w/q).toFixed(2)+" কেজি/মুরগি":"—")+"</b>";
+}
+function addGift(){
+  let v=id=>document.getElementById(id);
+  let name=v("os_gName").value.trim(),pcs=Math.round(+v("os_gPcs").value||0),w=+v("os_gWeight").value||0;
+  if(!name){showToast("❌ নাম দিন");return;}
+  if(pcs<=0){showToast("❌ মুরগির পিস দিন");return;}
+  if(w<=0){showToast("❌ মোট ওজন দিন");return;}
+  let avail=livePcs();
+  if(pcs>avail&&!confirm("⚠️ মুরগি ("+pcs+" টি) খামারের বর্তমান মুরগির ("+avail+" টি) চেয়ে বেশি। তবুও সংরক্ষণ করবেন?"))return;
+  state.gifts=state.gifts||[];
+  state.gifts.push({date:v("os_gDate").value||new Date().toISOString().slice(0,10),kind:v("os_gKind").value,name:name,qty:pcs,weight:w});
+  v("os_gName").value="";v("os_gPcs").value="";v("os_gWeight").value="";
+  save();render();showToast("✅ যোগ হয়েছে — অবশিষ্ট মুরগি থেকে বাদ গেছে");
+}
+function delGift(i){
+  if(!confirm("মুছে ফেলবেন?"))return;
+  state.gifts.splice(i,1);save();render();showToast("🗑️ মুছে ফেলা হয়েছে");
+}
+function renderGifts(){
+  let a=state.gifts||[],tb=document.getElementById("giftTable");if(!tb)return;
+  let q=giftPcs(),w=sumOf(a,r=>r.weight);
+  tb.innerHTML=a.length?a.map((r,i)=>`<tr><td>${r.date||"—"}</td><td>${esc(r.kind||"গিফট")}</td><td>${esc(r.name)||"—"}</td><td>${fmt(r.qty,0)} টি</td><td>${fmt(r.weight)} কেজি</td><td>${(+r.qty)?(r.weight/r.qty).toFixed(2):"—"} কেজি</td><td style="white-space:nowrap"><button class="edt" onclick="openEdit('gift',${i})">✏️</button><button class="del" onclick="delGift(${i})">মুছুন</button></td></tr>`).join(""):`<tr><td colspan="7" class="empty">এখনও কোনো গিফট / নিজের খাওয়ার হিসাব নেই</td></tr>`;
+  let set=(id,t)=>{let el=document.getElementById(id);if(el)el.textContent=t};
+  set("os_gTot","🎁 মোট: "+fmt(q,0)+" টি • "+fmt(w)+" কেজি");
+  set("os_gSum",fmt(q,0)+" টি");
+  set("os_liveSum",fmt(livePcs(),0)+" টি");
+  set("os_gAvail",fmt(livePcs(),0));
+  let d=document.getElementById("os_gDate");if(d&&!d.value)d.value=new Date().toISOString().slice(0,10);
+  giftLive();
 }
 function otherSalesTotal(type){
   if(!state.otherSales||!state.otherSales[type])return 0;
@@ -882,7 +1006,7 @@ function otherSalesTotal(type){
 }
 function otherSalesGrand(){return Object.keys(osCfg).reduce((s,k)=>s+otherSalesTotal(k),0);}
 function renderOtherSales(){
-  osInit();
+  osInit();osLiveAll();
   if(!state.otherSales)state.otherSales={litter:[],chicken:[],bag:[],feed:[]};
   let grand=0;
   Object.keys(osCfg).forEach(type=>{
@@ -896,20 +1020,254 @@ function renderOtherSales(){
     if(sumEl)sumEl.textContent=money(typeTotal);
     let tbl=document.getElementById(c.table);
     if(!tbl)return;
-    tbl.innerHTML=rows.length?rows.map((r,i)=>`<tr>
-      <td>${r.date||"—"}</td>
-      <td>${r.qty} কেজি</td>
-      <td>${money(r.rate)}</td>
-      <td style="color:#3ddc84;font-weight:700">${money((+r.qty||0)*(+r.rate||0))}</td>
-      <td>${r.buyer||"—"}</td>
-      <td><button class="del" onclick="delOtherSale('${type}',${i})">মুছুন</button></td>
-    </tr>`).join(""):`<tr><td colspan="6" class="empty">এখনও কোনো ${c.label} যোগ করা হয়নি</td></tr>`;
+    let acts=i=>`<td style="white-space:nowrap"><button class="edt" onclick="openEdit('os',${i},'${type}')">✏️</button><button class="del" onclick="delOtherSale('${type}',${i})">মুছুন</button></td>`;
+    let tot=r=>`<td style="color:#3ddc84;font-weight:700">${money((+r.qty||0)*(+r.rate||0))}</td>`;
+    let buyer=r=>`<td>${esc(r.buyer)||"—"}</td>`;
+    let ncol=type==="feed"?8:type==="chicken"?7:6;
+    tbl.innerHTML=rows.length?rows.map((r,i)=>{
+      if(type==="feed"){let hb=r.bags!==undefined;return `<tr><td>${r.date||"—"}</td><td>${hb?fmt(r.bags,0)+" বস্তা":"—"}</td><td>${(hb?fmt(r.loose):fmt(r.qty))+" কেজি"}</td><td>${fmt(r.qty)} কেজি</td><td>${money(r.rate)}</td>${tot(r)}${buyer(r)}${acts(i)}</tr>`}
+      if(type==="chicken")return `<tr><td>${r.date||"—"}</td><td>${r.pcs?fmt(r.pcs,0)+" টি":"—"}</td><td>${fmt(r.qty)} কেজি</td><td>${money(r.rate)}</td>${tot(r)}${buyer(r)}${acts(i)}</tr>`;
+      return `<tr><td>${r.date||"—"}</td><td>${fmt(r.qty)} কেজি</td><td>${money(r.rate)}</td>${tot(r)}${buyer(r)}${acts(i)}</tr>`;
+    }).join(""):`<tr><td colspan="${ncol}" class="empty">এখনও কোনো ${c.label} যোগ করা হয়নি</td></tr>`;
   });
   let grandEl=document.getElementById("os_grandTotal");
   if(grandEl)grandEl.textContent=money(grand);
 }
 
-function render(){renderDashboard();renderFarm();renderDeaths();renderWorkers();Object.keys(configs).forEach(renderTable);renderSales();renderLitterSales();renderLitterSalesPage();renderOtherSales();renderCustomers();renderRent();renderReport();renderSheets();renderBatchBar();renderBatchesPage();renderMedSchedule();renderNotes()}
+
+// ══════ সামারি ও এডিট ══════
+const esc=v=>String(v==null?"":v).replace(/&/g,"&amp;").replace(/"/g,"&quot;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+const fmt=(n,d)=>Number(n||0).toLocaleString("en-BD",{maximumFractionDigits:d===undefined?2:d});
+const sumOf=(a,f)=>(a||[]).reduce((s,r)=>s+(+f(r)||0),0);
+function lastDate(a){let d=(a||[]).map(r=>r.date).filter(Boolean).sort();return d.length?d[d.length-1]:"—"}
+window._sums={};
+function sumCards(id,items){window._sums[id]=items}
+function cardHtml(x){return `<div class="sc"><div class="sci">${x[0]}</div><div style="min-width:0"><div class="scl">${x[1]}</div><div class="scv" ${x[3]?`style="color:${x[3]}"`:""}>${x[2]}</div></div></div>`}
+function topCount(list){let c={};list.filter(Boolean).forEach(n=>{n=String(n).trim();if(n)c[n]=(c[n]||0)+1});let k=Object.keys(c).sort((a,b)=>c[b]-c[a])[0];return k?k+" ("+c[k]+" বার)":"—"}
+function renderSummaries(){
+ let bs=batchSummary(state);
+ let chicks=+state.chicks||0,dead=+state.dead||0,alive=Math.max(0,chicks-dead),sold=soldPcs(),live=livePcs();
+ // খরচের পেজ: ফিড, medicine, বিভিন্ন খরচ, কাঠের গুড়া
+ Object.keys(configs).forEach(k=>{
+  let a=state[k]||[],cost=total(k),qty=sumOf(a,r=>r.qty);
+  sumCards(k,[["🧾","মোট এন্ট্রি",a.length],["⚖️","মোট পরিমাণ",fmt(qty)],["💸","মোট খরচ",money(cost),"#fbbf24"],["📊","গড় দর",qty?money(cost/qty):"৳০"],["📈","মোট খরচের অংশ",bs.cost?(cost/bs.cost*100).toFixed(1)+"%":"০%"],["🐔","প্রতি জীবিত মুরগি",alive?money(cost/alive):"৳০"],["📅","শেষ এন্ট্রি",lastDate(a)]]);
+ });
+ // বাচ্চা
+ sumCards("farm",[["📅","বয়স",days()+" দিন"],["🐣","মোট বাচ্চা",fmt(chicks,0)],["💵","বাচ্চা ক্রয় খরচ",money(chicks*(+state.chickPrice||0)),"#fbbf24"],["🛒","বিক্রিত",fmt(sold,0)],["🐔","বর্তমান আছে",fmt(live,0),"#3ddc84"],["☠️","মৃত",fmt(dead,0),"#ff7070"],["⚖️","মৃত্যুর হার",(chicks?(dead/chicks*100).toFixed(2):0)+"%"]]);
+ // মৃত বাচ্চা
+ let d=state.deaths||[],worst=d.slice().sort((a,b)=>(+b.qty||0)-(+a.qty||0))[0];
+ sumCards("deaths",[["☠️","মোট মৃত",fmt(dead,0),"#ff7070"],["⚖️","মৃত্যুর হার",(chicks?(dead/chicks*100).toFixed(2):0)+"%"],["🐔","বর্তমান আছে",fmt(live,0),"#3ddc84"],["📋","রেকর্ড সংখ্যা",d.length],["❗","প্রধান কারণ",topCount(d.map(r=>r.reason))],["📆","সবচেয়ে বেশি মৃত দিন",worst?(worst.date||"—")+" ("+worst.qty+" টি)":"—"]]);
+ // কর্মচারী
+ let w=state.workers||[],taken=workersTotal(),sal=+state.workerSalary||0;
+ sumCards("workers",[["💰","মাসিক বেতন",money(sal)],["🧾","মোট নিয়েছে",money(taken),"#fbbf24"],["📉","বাকি আছে",money(sal-taken),sal-taken<0?"#ff7070":"#3ddc84"],["🔢","কতবার নিয়েছে",w.length],["📅","শেষ নেওয়া",lastDate(w)]]);
+ // ভাড়া
+ let rn=state.rent||[],rt=sumOf(rn,r=>r.amt),rp=sumOf(rn,r=>r.paid);
+ sumCards("rent",[["🚚","মোট ভাড়া",money(rt),"#fbbf24"],["✅","দিয়েছি",money(rp),"#3ddc84"],["⏳","অবশিষ্ট",money(rt-rp),rt-rp>0?"#ff7070":"#3ddc84"],["🔢","মোট এন্ট্রি",rn.length],["📅","শেষ এন্ট্রি",lastDate(rn)]]);
+ // মুরগি বিক্রি
+ let sl=state.sales||[],sq=sumOf(sl,r=>r.qty),sw=sumOf(sl,r=>r.weight),st=sumOf(sl,r=>(+r.weight||0)*(+r.rate||0)),sp=sumOf(sl,r=>r.paid);
+ let cust=new Set(sl.map(r=>(r.customer||"").trim()).filter(Boolean)).size;
+ sumCards("sales",[["🐔","বিক্রিত মুরগি",fmt(sq,0)+" টি"],["⚖️","মোট ওজন",fmt(sw)+" কেজি"],["📏","গড় ওজন/মুরগি (পাইকারি)",sq?(sw/sq).toFixed(2)+" কেজি":"—"],["⚖️","মোট গড় (গিফট+খুচরা সহ)",allWeightStats().q?allWeightStats().avg.toFixed(2)+" কেজি":"—"],["🎁","গিফট/নিজের",fmt(giftPcs(),0)+" টি"],["🏷️","গড় দর/কেজি",sw?money(st/sw):"৳০"],["💰","মোট টাকা",money(st),"#3ddc84"],["✅","পেয়েছি",money(sp)],["⏳","বাকি পাব",money(Math.max(0,st-sp)),st-sp>0?"#ff7070":"#3ddc84"],["👥","ক্রেতা",cust+" জন"],["📦","এখনও বাকি মুরগি",fmt(live,0)+" টি"],["📅","শেষ বিক্রি",lastDate(sl)]]);
+ // ক্রেতা
+ sumCards("customers",[["👥","মোট ক্রেতা",cust+" জন"],["🛒","মোট বিক্রির বার",sl.length],["💰","মোট বিক্রি",money(st),"#3ddc84"],["✅","পরিশোধ",money(sp)],["⏳","মোট বাকি",money(Math.max(0,st-sp)),st-sp>0?"#ff7070":"#3ddc84"]]);
+ // অন্যান্য বিক্রি
+ let os=state.otherSales||{};
+ sumCards("othersales",[["🪵","লিটার",money(otherSalesTotal("litter"))],["🐔","খুচরা মুরগি",money(otherSalesTotal("chicken"))+" ("+fmt(retailPcs(),0)+" টি)"],["🎁","গিফট/নিজের",fmt(giftPcs(),0)+" টি"],["🛍️","বস্তা",money(otherSalesTotal("bag"))],["🌾","ফিড",money(otherSalesTotal("feed"))],["💰","সব মিলিয়ে",money(otherSalesGrand()),"#3ddc84"],["🔢","মোট এন্ট্রি",Object.keys(osCfg).reduce((n,k)=>n+((os[k]||[]).length),0)+(state.gifts||[]).length]]);
+ // মেডিসিন শিডিউল
+ let ms=state.medSchedule||[],names=[];
+ ms.forEach(r=>["morning","noon","night"].forEach(t=>{if(r[t]&&r[t].name)names.push(r[t].name)}));
+ let cnt=t=>ms.filter(r=>r[t]&&r[t].name).length;
+ sumCards("medschedule",[["📋","মোট রেকর্ড",ms.length],["🌅","সকালের ডোজ",cnt("morning")+" বার"],["☀️","দুপুরের ডোজ",cnt("noon")+" বার"],["🌙","রাতের ডোজ",cnt("night")+" বার"],["💊","সবচেয়ে বেশি ব্যবহৃত",topCount(names)],["📅","শেষ তারিখ",lastDate(ms)]]);
+ // নোট
+ let nt=state.notes||[];
+ sumCards("notes",[["📝","মোট নোট",nt.length],["📅","সর্বশেষ নোট",lastDate(nt)]]);
+ // রিপোর্ট
+ let inc=bs.sales;
+ sumCards("breakdown",[["🐣","বাচ্চা ক্রয়",money(chicks*(+state.chickPrice||0))],["🌾","ফিড",money(total("feed"))],["💊","Medicine",money(total("medicine"))],["👷","কর্মচারী",money(workersTotal())],["🧾","বিভিন্ন খরচ",money(total("other"))],["🪵","কাঠের গুড়া",money(total("litter"))],["🚚","পরিবহন ভাড়া",money(rentTotal())]]);
+ sumCards("report",[["💵","মোট খরচ",money(bs.cost),"#fbbf24"],["💰","মোট আয়",money(inc),"#3ddc84"],[bs.profit>=0?"📈":"📉",bs.profit>=0?"নিট লাভ":"নিট ক্ষতি",money(bs.profit),bs.profit>=0?"#3ddc84":"#ff7070"],["🐔","প্রতি জীবিত মুরগি খরচ",alive?money(bs.cost/alive):"৳০"]]);
+ // সব ব্যাচ
+ let all=store.batches.map(batchSummary),tp=all.reduce((s,x)=>s+x.profit,0);
+ sumCards("batches",[["🗂️","মোট ব্যাচ",store.batches.length],["🟢","চলমান",store.batches.filter(b=>b.status!=="closed").length],["✅","সম্পন্ন",store.batches.filter(b=>b.status==="closed").length],[tp>=0?"📈":"📉","সব ব্যাচের লাভ/ক্ষতি",money(tp),tp>=0?"#3ddc84":"#ff7070"]]);
+}
+
+
+// ── ড্যাশবোর্ড কার্ডে চাপলে সামারি ──
+const sumMeta={
+ sales:{t:"🐔 বিক্রিত মুরগি",p:"sales"},feed:{t:"🌾 ফিড খরচ",p:"feed"},medicine:{t:"💊 Medicine",p:"medicine"},other:{t:"🧾 বিভিন্ন খরচ",p:"other"},litter:{t:"🪵 কাঠের গুড়া",p:"litter"},
+ workers:{t:"👷 কর্মচারী",p:"workers"},rent:{t:"🚚 পরিবহন ভাড়া",p:"rent"},farm:{t:"🐣 বাচ্চার সামারি",p:"farm"},deaths:{t:"☠️ মৃত বাচ্চা",p:"deaths"},
+ income:{t:"💰 মোট আয়",p:"sales",groups:["sales","othersales"],gh:["🐔 মুরগি বিক্রি","🛒 অন্যান্য বিক্রি"]},
+ report:{t:"📊 লাভ-ক্ষতি",p:"report",groups:["report","breakdown"],gh:["📊 আয়-ব্যয়","💸 খরচের ভাগ"]}
+};
+function openPage(id){
+ let b=[...document.querySelectorAll(".nav")].find(x=>(x.getAttribute("onclick")||"").includes("go('"+id+"'"));
+ if(b){go(id,b);window.scrollTo(0,0);b.scrollIntoView({inline:"center",block:"nearest"})}
+}
+function showSummary(k){
+ let m=sumMeta[k];if(!m)return;
+ renderSummaries();
+ let gs=m.groups||[k];
+ sumTitle.textContent=m.t+" — "+state.name;
+ sumBody.innerHTML=gs.map((g,gi)=>(m.gh?`<div class="section" style="margin:${gi?16:0}px 0 8px;font-size:14px">${m.gh[gi]}</div>`:"")+`<div class="pgsum">${(window._sums[g]||[]).map(cardHtml).join("")}</div>`).join("");
+ sumOpen.onclick=()=>{closeSummary();openPage(m.p)};
+ summaryModal.classList.add("show");
+}
+function closeSummary(){summaryModal.classList.remove("show")}
+
+
+// ══════ ব্যাচ ক্লোজ ══════
+function closeStats(){
+ let bs=batchSummary(state);
+ let sold=soldPcs(),gift=giftPcs();
+ let live=Math.max(0,bs.chicks-bs.dead-sold-gift);
+ let due=(state.sales||[]).reduce((s,r)=>s+Math.max(0,(+r.weight||0)*(+r.rate||0)-(+r.paid||0)),0);
+ let hasSales=(state.sales||[]).length>0||otherSalesGrand()>0;
+ return {bs:bs,sold:sold,gift:gift,live:live,due:due,hasSales:hasSales,dead:bs.dead};
+}
+function openClose(){
+ if(state.status==="closed"){showToast("এই ব্যাচ আগেই ক্লোজ হয়েছে");return}
+ let x=closeStats(),bs=x.bs;
+ let cards=[["📅","বয়স",days()+" দিন"],["💵","মোট খরচ",money(bs.cost),"#fbbf24"],["💰","মোট আয়",money(bs.sales),"#3ddc84"],[bs.profit>=0?"📈":"📉",bs.profit>=0?"নিট লাভ":"নিট ক্ষতি",money(bs.profit),bs.profit>=0?"#3ddc84":"#ff7070"],["🛒","বিক্রিত মুরগি",fmt(x.sold,0)+" টি"],["🎁","গিফট/নিজের",fmt(x.gift,0)+" টি"],["☠️","মৃত",fmt(x.dead,0)+" টি","#ff7070"],["🐔","খামারে বাকি",fmt(x.live,0)+" টি",x.live>0?"#ffd070":"#3ddc84"],["⏳","ক্রেতার কাছে বাকি",money(x.due),x.due>0?"#ff7070":"#3ddc84"]];
+ let warns=[];
+ if(!x.hasSales)warns.push("কোনো বিক্রি যোগ করা হয়নি");
+ 
+ if(x.due>0)warns.push("ক্রেতাদের কাছে "+money(x.due)+" বাকি পাওনা আছে");
+ closeBody.innerHTML=`<div style="font-size:12px;color:#7a9aaa;margin-bottom:8px">${esc(state.name)} — ক্লোজ করার আগে চূড়ান্ত হিসাব দেখে নিন</div>`
+  +`<div class="pgsum">${cards.map(cardHtml).join("")}</div>`
+  +(x.live>0?`<div class="warnbox" style="border-color:#ff7070;color:#ffb0b0">🚫 <b>ক্লোজ করা যাবে না!</b><br>খামারে এখনও ${fmt(x.live,0)} টি মুরগি অবশিষ্ট আছে। সব মুরগি বিক্রি / গিফট / নিজের খাওয়া হিসেবে এন্ট্রি না হওয়া পর্যন্ত ব্যাচ ক্লোজ হবে না।</div>`:"")+(x.live>0?"":warns.length?`<div class="warnbox">${warns.map(w=>"⚠️ "+w).join("<br>")}<div style="opacity:.8;margin-top:4px">চাইলে তবুও ক্লোজ করতে পারেন।</div></div>`:`<div class="okbox">✅ সব ঠিক আছে — সব মুরগির হিসাব ও টাকা মিলেছে</div>`)
+  +`<div class="mfields" style="margin-top:12px"><label>ক্লোজের তারিখ<input id="closeDate" type="date" value="${new Date().toISOString().slice(0,10)}"></label><label class="wide">নোট (ঐচ্ছিক)<input id="closeNote" placeholder="যেমন: সব মুরগি বিক্রি শেষ"></label></div>`
+  +`<div style="font-size:11.5px;color:#7a9aaa;margin-top:10px;line-height:1.6">ℹ️ ক্লোজ করলে ব্যাচটি "সম্পন্ন" হবে। সব তথ্য ও রিপোর্ট সংরক্ষিত থাকবে, ডিলিট হবে না। পরে চাইলে "আবার চালু" করা যাবে। এরপর "➕ নতুন ব্যাচ" দিয়ে নতুন ব্যাচ শুরু করুন।</div>`;
+ document.getElementById("closeConfirmBtn").style.display=x.live>0?"none":"";
+ closeModal.classList.add("show");
+}
+function hideClose(){closeModal.classList.remove("show")}
+function confirmClose(){
+ if(state.status==="closed"){hideClose();return}
+ if(closeStats().live>0){showToast("❌ সব মুরগি বিক্রি না হলে ব্যাচ ক্লোজ করা যাবে না");return}
+ state.status="closed";
+ state.closedAt=document.getElementById("closeDate").value||new Date().toISOString().slice(0,10);
+ state.closeNote=document.getElementById("closeNote").value.trim();
+ save();hideClose();render();window.scrollTo(0,0);showToast("✅ ব্যাচ ক্লোজ হয়েছে");
+}
+function renderCloseBar(){
+ let el=document.getElementById("closeBar");if(!el)return;
+ if(state.status==="closed"){
+  let bs=batchSummary(state);
+  el.innerHTML=`<div class="closebar closed"><div><b>✅ ব্যাচ সম্পন্ন — ${state.closedAt||""}</b><div class="cbsub">চূড়ান্ত ${bs.profit>=0?"লাভ":"ক্ষতি"}: <b style="color:${bs.profit>=0?"#3ddc84":"#ff7070"}">${money(bs.profit)}</b>${state.closeNote?" • "+esc(state.closeNote):""}</div></div><div style="display:flex;gap:6px;flex-wrap:wrap"><button class="add" onclick="newBatch()">➕ নতুন ব্যাচ শুরু করুন</button><button class="tbtn-light" onclick="showSummary('report')">📊 রিপোর্ট</button><button class="tbtn-light" onclick="toggleBatchStatus()">🔓 আবার চালু</button></div></div>`;
+ }else{
+  el.innerHTML=`<div class="closebar"><div><b>🔒 ব্যাচ শেষ হয়েছে?</b><div class="cbsub">${livePcs()>0?`🐔 এখনও <b style="color:#ffd070">${livePcs()} টি</b> মুরগি অবশিষ্ট — সব মুরগি বিক্রি/গিফট না হলে ক্লোজ করা যাবে না`:"সব মুরগি শেষ — এখন ব্যাচ ক্লোজ করতে পারেন"}</div></div><button class="add" ${livePcs()>0?'style="opacity:.55"':""} onclick="openClose()">🔒 ব্যাচ ক্লোজ করুন</button></div>`;
+ }
+}
+
+// ── এডিট ──
+function openNameModal(kind,id,title,val){
+ window._edit={kind:kind,id:id};
+ editTitle.textContent=title;
+ editBody.oninput=null;
+ editBody.innerHTML=`<label class="wide">ব্যাচের নাম<input data-k="name" data-t="text" type="text" value="${esc(val)}"></label>`;
+ editModal.classList.add("show");
+ setTimeout(()=>{let i=editBody.querySelector("input");if(i){i.focus();i.select()}},60);
+}
+function renameBatch(id){let b=store.batches.find(x=>x.id===id);if(!b)return;openNameModal("batchName",id,"✏️ ব্যাচের নাম বদলান",b.name)}
+function editSchema(kind,type,i){
+ let T=["date","তারিখ","date"];
+ if(configs[kind]){let v=configs[kind];return{title:v[0],arr:state[kind],fields:[T,["name",v[1],"text"],["qty",v[2],"number"],["rate","দর","number"]]}}
+ if(kind==="deaths")return{title:"মৃত বাচ্চা",arr:state.deaths,fields:[T,["qty","মৃত সংখ্যা","number"],["reason","কারণ","text"],["note","নোট","text"]]};
+ if(kind==="workers")return{title:"কর্মচারী",arr:state.workers,fields:[T,["amount","কত টাকা নিলো","number"],["note","মন্তব্য","text"]]};
+ if(kind==="rent")return{title:"পরিবহন ভাড়া",arr:state.rent,fields:[T,["desc","বিবরণ","text"],["amt","ভাড়া কত","number"],["paid","দিলাম কত","number"]]};
+ if(kind==="os"){
+  let f=[T];
+  if(type==="feed")f.push(["bags","বস্তা (সংখ্যা)","number"],["loose","আলাদা কেজি","number"],["bagKg","প্রতি বস্তায় কত কেজি","number"]);
+  else{if(type==="chicken")f.push(["pcs","মুরগির পিস","number"]);f.push(["qty",type==="chicken"?"মোট ওজন (কেজি)":"পরিমাণ (কেজি)","number"]);}
+  f.push(["rate","দর/কেজি (৳)","number"],["buyer","ক্রেতার নাম","text"]);
+  return{title:osCfg[type].label,arr:state.otherSales[type],fields:f};
+ }
+ if(kind==="gift")return{title:"গিফট / নিজের খাওয়া",arr:state.gifts,fields:[T,["kind","ধরন","select"],["name","নাম","text"],["qty","মুরগির পিস","number"],["weight","মোট ওজন (কেজি)","number"]]};
+ if(kind==="notes")return{title:"নোট",arr:state.notes,fields:[T,["title","শিরোনাম","text"],["text","নোট বিস্তারিত","textarea"]]};
+ if(kind==="medSchedule"){
+  let f=[T,["age","বয়স (দিন)","number"]];
+  [["morning","🌅 সকাল"],["noon","☀️ দুপুর"],["night","🌙 রাত"]].forEach(x=>{f.push([x[0]+".name",x[1]+" — মেডিসিন","text"],[x[0]+".dose",x[1]+" — ডোজ","text"],[x[0]+".note",x[1]+" — নোট","text"]);});
+  return{title:"মেডিসিন শিডিউল",arr:state.medSchedule,fields:f};
+ }
+ if(kind==="sales"){
+  let r=state.sales[i]||{};
+  let f=[T,["customer","ক্রেতার নাম","text"]];
+  if(r.pallas&&r.pallas.length)f.push(["pallas","পাল্লা (প্রতি লাইনে: মুরগি সংখ্যা, ওজন — যেমন 50, 95.5)","pallas"]);
+  else f.push(["qty","মুরগি সংখ্যা","number"],["weight","মোট ওজন (কেজি)","number"]);
+  f.push(["rate","দর/কেজি","number"],["paid","পরিশোধ কত","number"]);
+  return{title:"মুরগি বিক্রি",arr:state.sales,fields:f};
+ }
+ return null;
+}
+const dotGet=(o,p)=>p.split(".").reduce((a,k)=>a==null?undefined:a[k],o);
+function dotSet(o,p,v){let ks=p.split("."),t=o;for(let j=0;j<ks.length-1;j++){if(typeof t[ks[j]]!=="object"||t[ks[j]]===null)t[ks[j]]={};t=t[ks[j]]}t[ks[ks.length-1]]=v}
+function openEdit(kind,i,type){
+ let sc=editSchema(kind,type,i);if(!sc||!sc.arr||!sc.arr[i])return;
+ let rec=sc.arr[i];window._edit={kind:kind,i:i,type:type};
+ if(kind==="os"&&type==="feed"){if(rec.bags===undefined){rec.bags=0;rec.loose=+rec.qty||0}if(rec.bagKg===undefined)rec.bagKg=50}
+ editTitle.textContent="✏️ "+sc.title+" — এডিট করুন";
+ editBody.innerHTML=sc.fields.map(f=>{
+  let val=f[2]==="pallas"?(rec.pallas||[]).map(p=>p.qty+", "+p.weight).join("\n"):dotGet(rec,f[0]);
+  let wide=(f[2]==="textarea"||f[2]==="pallas")?" wide":"";
+  if(f[2]==="select")return `<label>${f[1]}<select data-k="${f[0]}" data-t="select">${["গিফট","নিজের খাওয়া"].map(o=>`<option ${o===val?"selected":""}>${o}</option>`).join("")}</select></label>`;
+  let inp=(f[2]==="textarea"||f[2]==="pallas")
+   ?`<textarea data-k="${f[0]}" data-t="${f[2]}" rows="${f[2]==="pallas"?5:4}">${esc(val)}</textarea>`
+   :`<input data-k="${f[0]}" data-t="${f[2]}" type="${f[2]}" ${f[2]==="number"?'step=".01" inputmode="decimal"':""} value="${esc(val)}">`;
+  return `<label class="${wide.trim()}">${f[1]}${inp}</label>`;
+ }).join("");
+ editBody.innerHTML+=`<div id="editLive" style="grid-column:1/-1;padding:10px 14px;background:#0d2b1e;border:1px solid #1aad6e50;border-radius:10px;font-size:14px;color:#3ddc84;font-weight:700;display:none"></div>`;
+ editBody.oninput=editLive;editLive();
+ editModal.classList.add("show");
+}
+function editLive(){
+ let e=window._edit,box=document.getElementById("editLive");if(!e||!box)return;
+ let g=k=>{let el=editBody.querySelector('[data-k="'+k+'"]');return el?(+el.value||0):0};
+ let html="";
+ if(configs[e.kind]||(e.kind==="os"&&e.type!=="feed")){html="💰 মোট দাম: "+money(g("qty")*g("rate"));if(e.kind==="os"&&e.type==="chicken"&&g("pcs")&&g("qty"))html+=" • গড় "+(g("qty")/g("pcs")).toFixed(2)+" কেজি/পিস"}
+ else if(e.kind==="os"){let kg=g("bags")*g("bagKg")+g("loose");html="💰 মোট দাম: "+money(kg*g("rate"))+" • মোট "+fmt(kg)+" কেজি"}
+ else if(e.kind==="sales"){
+  let pe=editBody.querySelector('[data-t="pallas"]'),w=0,q=0;
+  if(pe){pe.value.split(/\n/).forEach(l=>{let a=l.trim().split(/[\s,]+/).map(Number);if(a.length>=2&&a[0]>0&&a[1]>0){q+=a[0];w+=a[1]}})}else{w=g("weight");q=g("qty")}
+  html="💰 মোট দাম: "+money(w*g("rate"))+" • "+fmt(q,0)+" টি • "+fmt(w)+" কেজি"+(q?" • গড় "+(w/q).toFixed(2)+" কেজি":"");
+ }
+ else if(e.kind==="gift"){let q=g("qty"),w=g("weight");html="⚖️ গড় ওজন: "+(q&&w?(w/q).toFixed(2)+" কেজি/মুরগি":"—")}
+ box.style.display=html?"block":"none";box.innerHTML=html;
+}
+function closeEdit(){editModal.classList.remove("show");window._edit=null}
+function saveEdit(){
+ let e=window._edit;if(!e)return;
+ if(e.kind==="batchName"||e.kind==="newBatch"){
+  let nv=editBody.querySelector("[data-k]").value.trim();
+  if(e.kind==="batchName"){if(!nv){alert("নাম দিন");return}let b=store.batches.find(x=>x.id===e.id);if(b)b.name=nv;save();render();closeEdit();showToast("✅ ব্যাচের নাম বদলানো হয়েছে");return}
+  let b=freshBatch(nv||"ব্যাচ "+(store.batches.length+1));store.batches.push(b);store.activeId=b.id;state=b;save();render();closeEdit();window.scrollTo(0,0);showToast("✅ নতুন ব্যাচ শুরু হয়েছে");return;
+ }
+ let sc=editSchema(e.kind,e.type,e.i);if(!sc||!sc.arr[e.i])return;
+ let rec=sc.arr[e.i],vals={},pallas=null;
+ let els=editBody.querySelectorAll("[data-k]");
+ for(let el of els){
+  let k=el.dataset.k,t=el.dataset.t;
+  if(t==="number")vals[k]=+el.value||0;
+  else if(t==="pallas"){
+   pallas=[];
+   for(let line of el.value.split(/\n/)){
+    line=line.trim();if(!line)continue;
+    let pr=line.split(/[\s,]+/).map(Number);
+    if(pr.length<2||!(pr[0]>0)||!(pr[1]>0)){alert("পাল্লার লাইন ঠিক নয়: \""+line+"\"\nসঠিক রূপ: মুরগি সংখ্যা, ওজন (যেমন 50, 95.5)");return;}
+    pallas.push({qty:pr[0],weight:pr[1]});
+   }
+   if(!pallas.length){alert("অন্তত একটি পাল্লা দিন");return;}
+  }
+  else vals[k]=el.value;
+ }
+ Object.keys(vals).forEach(k=>dotSet(rec,k,vals[k]));
+ if(e.kind==="os"&&e.type==="feed")rec.qty=(+rec.bags||0)*(+rec.bagKg||0)+(+rec.loose||0);
+ if(e.kind==="os"&&e.type==="chicken")rec.pcs=Math.round(+rec.pcs||0);
+ if(e.kind==="gift")rec.qty=Math.round(+rec.qty||0);
+ if(pallas){rec.pallas=pallas;rec.qty=pallas.reduce((s,p)=>s+p.qty,0);rec.weight=+pallas.reduce((s,p)=>s+p.weight,0).toFixed(3);}
+ if(e.kind==="deaths")state.dead=deathTotal();
+ save();render();renderTempPallas();closeEdit();showToast("✅ পরিবর্তন সংরক্ষণ হয়েছে");
+}
+document.addEventListener("keydown",ev=>{if(ev.key==="Escape"){closeEdit();closeSummary();hideClose()}});
+
+function render(){renderDashboard();renderFarm();renderDeaths();renderWorkers();Object.keys(configs).forEach(renderTable);renderSales();renderLitterSales();renderLitterSalesPage();renderOtherSales();renderGifts();renderCustomers();renderRent();renderReport();renderSheets();renderBatchBar();renderBatchesPage();renderMedSchedule();renderNotes();renderSummaries();renderCloseBar()}
 makePages();
 const navItems=[["dashboard","🏠 ড্যাশবোর্ড"],["farm","🐣 বাচ্চা"],["deaths","☠️ মৃত বাচ্চা"],["feed","🌾 ফিড"],["medicine","💊 Medicine"],["workers","👷 কর্মচারী"],["other","🧾 বিভিন্ন খরচ"],["litter","🪵 কাঠের গুড়া"],["rent","🚚 পরিবহন ভাড়া"],["sales","💰 বিক্রি"],["othersales","🛒 অন্যান্য বিক্রি"],["customers","👥 ক্রেতা"],["medschedule","💊 মেডিসিন শিডিউল"],["notes","📝 নোট"],["report","📑 রিপোর্ট"],["batches","🗂️ সব ব্যাচ"],["sheets","📚 সব শিট"]];
 const navColors={dashboard:"linear-gradient(135deg,#6366f1,#4f46e5)",farm:"linear-gradient(135deg,#f59e0b,#d97706)",deaths:"linear-gradient(135deg,#ef4444,#b91c1c)",feed:"linear-gradient(135deg,#84cc16,#4d7c0f)",medicine:"linear-gradient(135deg,#a855f7,#7e22ce)",workers:"linear-gradient(135deg,#06b6d4,#0e7490)",other:"linear-gradient(135deg,#f97316,#c2410c)",litter:"linear-gradient(135deg,#a78bfa,#6d28d9)",rent:"linear-gradient(135deg,#14b8a6,#0f766e)",sales:"linear-gradient(135deg,#22c55e,#15803d)",othersales:"linear-gradient(135deg,#f43f5e,#be123c)",customers:"linear-gradient(135deg,#3b82f6,#1d4ed8)",medschedule:"linear-gradient(135deg,#ec4899,#9d174d)",notes:"linear-gradient(135deg,#eab308,#a16207)",report:"linear-gradient(135deg,#0ea5e9,#0369a1)",batches:"linear-gradient(135deg,#8b5cf6,#6d28d9)",sheets:"linear-gradient(135deg,#10b981,#047857)"};
@@ -932,6 +1290,7 @@ function go(id,b){
   b.style.background=grad;
   b.style.boxShadow="0 4px 14px #00000050";
 }
+["renderMedSchedule","renderNotes","renderOtherSales"].forEach(n=>{const f=window[n];window[n]=function(){f.apply(this,arguments);renderSummaries()}});
 render();
 renderTempPallas();
 if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("service-worker.js").catch(()=>{})})}
