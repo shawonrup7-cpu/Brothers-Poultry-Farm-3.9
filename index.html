@@ -4,7 +4,6 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1">
 <title>ব্রাদার্স পোল্ট্রি ফার্ম</title>
-<meta name="description" content="ব্রাদার্স পোল্ট্রি ফার্মের সম্পূর্ণ হিসাব-নিকাশ অ্যাপ">
 <link rel="manifest" href="manifest.json">
 <meta name="theme-color" content="#0a4a2f">
 <meta name="mobile-web-app-capable" content="yes">
@@ -12,7 +11,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="ব্রাদার্স পোল্ট্রি">
 <link rel="icon" href="icon-192.png">
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="apple-touch-icon" href="icon-192.png">
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@400;500;600;700&display=swap');
 *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
@@ -202,6 +201,51 @@ tr:hover td{background:#ffffff04}
  th{background:#f0f0f0!important;color:#000!important}
  td{color:#000!important}
 }
+
+/* ── NAV: বড় ড্যাশবোর্ড বাটন উপরে, বাকিগুলো নিচের সারিতে ── */
+nav{flex-direction:column;overflow-x:visible;gap:7px;padding:8px 10px}
+.nav-row{display:flex;gap:6px;overflow-x:auto;scrollbar-width:none}
+.nav-row::-webkit-scrollbar{display:none}
+.nav-dash{width:100%;font-size:17px;padding:12px 14px;border-radius:13px;font-weight:800;text-align:center;letter-spacing:.3px;border:1.5px solid #ffffff30}
+#vacBadge{display:none;background:#ef4444;color:#fff;border-radius:10px;font-size:10.5px;padding:0 6px;margin-left:4px;line-height:16px;animation:pulse 1.2s infinite}
+
+/* ── আর্থিক সারাংশ বক্স ── */
+.fin-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:10px}
+.fin-box{border-radius:16px;padding:16px 14px;text-align:center;border:1px solid #ffffff14;background:linear-gradient(145deg,#162530,#1a2d3a)}
+.fin-l{font-size:13px;font-weight:700;color:#9fb6c4;margin-bottom:6px}
+.fin-v{font-size:24px;font-weight:800;color:#e8edf2;line-height:1.15;word-break:break-word}
+.fin-exp{border-color:#ff4d4d35;background:linear-gradient(145deg,#2b0d0d,#2e1212)}.fin-exp .fin-v{color:#ff8a8a}
+.fin-inc{border-color:#1aad6e40;background:linear-gradient(145deg,#0d2b1e,#122e22)}.fin-inc .fin-v{color:#3ddc84}
+.fin-net.profit{border-color:#3ddc8450;background:linear-gradient(145deg,#0a2218,#0d281c)}.fin-net.profit .fin-v,.fin-net.profit .fin-l{color:#3ddc84}
+.fin-net.loss{border-color:#ff4d4d50;background:linear-gradient(145deg,#220a0a,#280d0d)}.fin-net.loss .fin-v,.fin-net.loss .fin-l{color:#ff7070}
+.fin-net .fin-v{font-size:28px}
+
+/* ── ভ্যাকসিন ── */
+.vac{display:flex;gap:12px;align-items:flex-start;border-radius:16px;padding:14px;margin-bottom:12px;border:1.5px solid #ffffff14;background:linear-gradient(145deg,#162530,#1a2d3a)}
+.vac-ic{width:54px;height:54px;border-radius:50%;display:grid;place-items:center;font-size:26px;flex-shrink:0;background:#ffffff12}
+.vac-body{flex:1;min-width:0}
+.vac-t{font-size:15px;font-weight:800;color:#e8edf2}
+.vac-s{font-size:12px;color:#8fa7b6;margin-top:2px}
+.vac-st{font-size:13.5px;font-weight:700;margin-top:8px}
+.vac-form{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:flex-end}
+.vac-form label{flex:1;min-width:130px}
+.vac-form input{margin-top:3px;padding:8px 10px;font-size:13px}
+.vac-form .add{margin-top:0;white-space:nowrap}
+.vac-done{border-color:#22c55e;background:linear-gradient(145deg,#0a2a18,#0f3622)}
+.vac-done .vac-ic{background:#22c55e;color:#fff;font-size:30px;font-weight:900}
+.vac-done .vac-st{color:#4ade80}
+.vac-due{border-color:#f59e0b;background:linear-gradient(145deg,#2b1e0d,#33250f);animation:vacglow 1.6s infinite}
+.vac-due .vac-st{color:#fbbf24}
+.vac-late{border-color:#ef4444;background:linear-gradient(145deg,#2b0d0d,#361212);animation:vacglow 1.2s infinite}
+.vac-late .vac-st{color:#f87171}
+.vac-soon{border-color:#3d8bff80}.vac-soon .vac-st{color:#70b8ff}
+.vac-wait .vac-st{color:#8fa7b6}
+@keyframes vacglow{0%,100%{box-shadow:0 0 0 0 #f59e0b00}50%{box-shadow:0 0 0 5px #f59e0b30}}
+.vacwarn{border-radius:14px;padding:11px 14px;margin-bottom:8px;font-size:13.5px;font-weight:700;cursor:pointer;line-height:1.5}
+.vacwarn.due{background:#2b1e0d;border:1.5px solid #f59e0b;color:#fbbf24}
+.vacwarn.late{background:#2b0d0d;border:1.5px solid #ef4444;color:#f87171;animation:vacglow 1.2s infinite}
+.vacwarn.soon{background:#0d1e2b;border:1.5px solid #3d8bff80;color:#70b8ff}
+.vacitem{padding:9px 0;border-bottom:1px solid #ffffff12;font-size:14px;line-height:1.5}
 </style>
 </head>
 <body>
@@ -254,6 +298,7 @@ tr:hover td{background:#ffffff04}
 <div id="toast" class="toast"></div>
 <div id="summaryModal" class="modal" onclick="if(event.target===this)closeSummary()"><div class="mbox"><div id="sumTitle" class="mtitle"></div><div id="sumBody"></div><div class="mbtns"><button class="add" id="sumOpen">📂 পুরো হিসাব দেখুন</button><button class="tbtn-light" onclick="closeSummary()">বন্ধ করুন</button></div></div></div>
 <div id="closeModal" class="modal" onclick="if(event.target===this)hideClose()"><div class="mbox"><div class="mtitle">🔒 ব্যাচ ক্লোজ করুন</div><div id="closeBody"></div><div class="mbtns"><button class="add" id="closeConfirmBtn" onclick="confirmClose()">🔒 ক্লোজ নিশ্চিত করুন</button><button class="tbtn-light" onclick="hideClose()">বাতিল</button></div></div></div>
+<div id="vacModal" class="modal" onclick="if(event.target===this)hideVacPopup()"><div class="mbox"><div class="mtitle">🚨 ভ্যাকসিনের ওয়ার্নিং</div><div id="vacModalBody"></div><div class="mbtns"><button class="add" onclick="hideVacPopup();openPage('vaccine')">💉 ভ্যাকসিন পেজে যান</button><button class="tbtn-light" onclick="hideVacPopup()">পরে</button></div></div></div>
 <div id="editModal" class="modal" onclick="if(event.target===this)closeEdit()"><div class="mbox"><div id="editTitle" class="mtitle"></div><div id="editBody" class="mfields"></div><div class="mbtns"><button class="add" onclick="saveEdit()">💾 সংরক্ষণ</button><button class="tbtn-light" onclick="closeEdit()">বাতিল</button></div></div></div>
 <main>
 
@@ -284,6 +329,7 @@ tr:hover td{background:#ffffff04}
   </div>
 </div>
 
+<div id="vacBanner"></div>
 <div id="closeBar"></div>
 <div class="hint">👆 যেকোনো কার্ডে চাপ দিন — তার সামারি দেখা যাবে</div>
 <!-- Flock -->
@@ -321,10 +367,11 @@ tr:hover td{background:#ffffff04}
 
 <!-- Summary -->
 <div class="section">📑 আর্থিক সারাংশ</div>
-<div class="wrap summary-card">
-  <table><thead><tr><th>খাত</th><th style="text-align:right">টাকা</th></tr></thead>
-  <tbody id="summary"></tbody></table>
+<div class="fin-grid">
+  <div class="fin-box fin-exp"><div class="fin-l">💸 মোট ব্যয়</div><div class="fin-v" id="finCost">৳০</div></div>
+  <div class="fin-box fin-inc"><div class="fin-l">💰 মোট আয়</div><div class="fin-v" id="finInc">৳০</div></div>
 </div>
+<div class="fin-box fin-net profit" id="finNetBox"><div class="fin-l" id="finNetL">📈 লাভ / ক্ষতি (সর্বমোট)</div><div class="fin-v" id="finNet">৳০</div></div>
 
 </section>
 
@@ -501,6 +548,14 @@ tr:hover td{background:#ffffff04}
 </tr></thead><tbody id="medScheduleTable"></tbody></table></div>
 </section>
 
+<section id="vaccine" class="page">
+<div class="section">💉 ভ্যাকসিন শিডিউল</div>
+<div class="hint" id="vacInfo"></div>
+<div id="vacList"></div>
+<div id="vacNotifBox"></div>
+<div class="hint">🔔 সময় হলে অ্যাপ খোলার সাথে সাথে ওয়ার্নিং আসবে, ড্যাশবোর্ডে লাল/হলুদ সতর্কতা দেখাবে এবং ভ্যাকসিন বাটনে লাল সংখ্যা জ্বলবে। ভ্যাকসিন দিলে "✅ দেওয়া হয়েছে" চাপুন — কার্ড সবুজ হয়ে টিক পড়বে।</div>
+</section>
+
 <section id="notes" class="page">
 <div class="section">📝 নোট / গুরুত্বপূর্ণ তথ্য</div>
 <div class="form">
@@ -637,13 +692,11 @@ if(bsb){bsb.textContent=state.status==="closed"?"✅ সম্পন্ন":"�
 kDeathRate.textContent=(state.chicks?(state.dead/state.chicks*100).toFixed(2):0)+"%";
 let liveChicks=Math.max(0,(+state.chicks||0)-(+state.dead||0));
 kCostPerKg.textContent=liveChicks?money(c.cost/liveChicks)+"  প্রতি মুরগি":"৳০";
-let rows=[
- ["🐣 বাচ্চা ক্রয়",c.chicks,""],["🌾 ফিড",c.feed,""],["💊 Medicine",c.medicine,""],["👷 কর্মচারী",c.workers,""],
- ["🧾 বিভিন্ন খরচ",c.other,""],["🪵 কাঠের গুড়া",c.litter,""],["🚚 পরিবহন ভাড়া",c.rent,""],
- ["💵 মোট খরচ",c.cost,"total"],["💰 মুরগি বিক্রি",c.sales,""],["🛒 অন্যান্য বিক্রি",c.otherSalesTotal,""],["💰 মোট আয়",c.totalIncome,"total"],
- [c.profit>=0?"📈 নিট লাভ":"📉 নিট ক্ষতি",c.profit,c.profit>=0?"profit":"loss"]
-];
-summary.innerHTML=rows.map(x=>`<tr class="summary-row-${x[2]||"expense"}"><td>${x[0]}</td><td style="text-align:right;font-weight:${x[2]?"800":"600"}">${money(x[1])}</td></tr>`).join("");
+document.getElementById("finCost").textContent=money(c.cost);
+document.getElementById("finInc").textContent=money(c.totalIncome);
+{let nb=document.getElementById("finNetBox");nb.className="fin-box fin-net "+(c.profit>=0?"profit":"loss");
+document.getElementById("finNetL").textContent=c.profit>=0?"📈 নিট লাভ (সর্বমোট)":"📉 নিট ক্ষতি (সর্বমোট)";
+document.getElementById("finNet").textContent=money(Math.abs(c.profit));}
 }
 function saveFarm(){state.startDate=fDate.value;state.chicks=+fChicks.value||0;state.chickPrice=+fPrice.value||0;state.dead=+fDead.value||0;save();render()}
 function addDeath(){
@@ -1267,16 +1320,126 @@ function saveEdit(){
 }
 document.addEventListener("keydown",ev=>{if(ev.key==="Escape"){closeEdit();closeSummary();hideClose()}});
 
-function render(){renderDashboard();renderFarm();renderDeaths();renderWorkers();Object.keys(configs).forEach(renderTable);renderSales();renderLitterSales();renderLitterSalesPage();renderOtherSales();renderGifts();renderCustomers();renderRent();renderReport();renderSheets();renderBatchBar();renderBatchesPage();renderMedSchedule();renderNotes();renderSummaries();renderCloseBar()}
+// ── ভ্যাকসিন ──
+const VAC=[
+ {k:"ranikhet",name:"রানিক্ষেত (Newcastle) ভ্যাকসিন",ico:"🐥",from:1,to:3},
+ {k:"gumboro1",name:"গামবোরো ভ্যাকসিন — ১ম ডোজ",ico:"💉",from:8,to:11},
+ {k:"gumboro2",name:"গামবোরো ভ্যাকসিন — ২য় ডোজ (বুস্টার)",ico:"💉",from:17,to:20}
+];
+const bnN=n=>String(n).replace(/\d/g,d=>"০১২৩৪৫৬৭৮৯"[d]);
+const vEsc=t=>String(t==null?"":t).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const todayISO=()=>new Date().toLocaleDateString("en-CA");
+function vacStatus(v){
+ let rec=(state.vaccines||{})[v.k];
+ if(rec&&rec.date)return{s:"done",rec:rec};
+ if(!state.startDate)return{s:"nodate"};
+ let a=days();
+ if(a>v.to)return{s:"late",late:a-v.to};
+ if(a>=v.from)return{s:"due",left:v.to-a+1};
+ if(a===v.from-1)return{s:"soon"};
+ return{s:"wait",inDays:v.from-a};
+}
+function vacRange(v){
+ if(!state.startDate)return"";
+ let a=new Date(state.startDate+"T00:00:00"),b=new Date(a);
+ a.setDate(a.getDate()+v.from);b.setDate(b.getDate()+v.to);
+ let f=d=>d.toLocaleDateString("bn-BD",{day:"numeric",month:"long"});
+ return f(a)+" – "+f(b);
+}
+function vacAlerts(){
+ if(state.status==="closed"||!state.startDate)return[];
+ return VAC.map(v=>({v:v,st:vacStatus(v)})).filter(x=>x.st.s==="due"||x.st.s==="late"||x.st.s==="soon");
+}
+function vacLine(x){
+ let v=x.v,st=x.st,r="বয়স "+bnN(v.from)+"–"+bnN(v.to)+" দিন";
+ if(st.s==="due")return"⚠️ "+v.name+" দেওয়ার সময় হয়েছে! ("+r+", আজসহ আর "+bnN(st.left)+" দিন)";
+ if(st.s==="late")return"🚨 "+v.name+" — সময় পেরিয়ে গেছে ("+bnN(st.late)+" দিন দেরি), এখনই দিন!";
+ return"🔔 কাল থেকে "+v.name+" দেওয়ার সময় শুরু ("+r+")";
+}
+function renderVacBanner(){
+ let al=vacAlerts(),el=document.getElementById("vacBanner"),bd=document.getElementById("vacBadge");
+ let n=al.filter(x=>x.st.s!=="soon").length;
+ if(bd){bd.style.display=n?"inline-block":"none";bd.textContent=bnN(n)}
+ if(el)el.innerHTML=al.map(x=>`<div class="vacwarn ${x.st.s==="soon"?"soon":x.st.s==="late"?"late":"due"}" onclick="openPage('vaccine')">${vEsc(vacLine(x))} <span style="opacity:.7;font-weight:600">👉 চাপুন</span></div>`).join("");
+}
+function renderVaccine(){
+ let host=document.getElementById("vacList");
+ if(host){
+  let done=VAC.filter(v=>vacStatus(v).s==="done").length;
+  let info=document.getElementById("vacInfo");
+  if(info)info.innerHTML=state.startDate?`🐣 ব্যাচ: <b>${vEsc(state.name)}</b> &nbsp;|&nbsp; ⏱️ বর্তমান বয়স: <b>${bnN(days())} দিন</b> &nbsp;|&nbsp; ✅ দেওয়া হয়েছে: <b>${bnN(done)}/${bnN(VAC.length)}</b>`:`⚠️ আগে "🐣 বাচ্চা" পেজে বাচ্চা আসার তারিখ দিন — তারিখ ছাড়া ভ্যাকসিনের সময় হিসাব হবে না`;
+  host.innerHTML=VAC.map(v=>{
+   let st=vacStatus(v),cls="vac-wait",ic=v.ico,msg="",act="";
+   let form=`<div class="vac-form"><label>তারিখ<input type="date" id="vd_${v.k}" value="${todayISO()}"></label><label>ভ্যাকসিনের নাম / নোট<input id="vn_${v.k}" placeholder="ঐচ্ছিক"></label><button class="add" onclick="markVac('${v.k}')">✅ দেওয়া হয়েছে</button></div>`;
+   if(st.s==="done"){cls="vac-done";ic="✔";msg=`✅ দেওয়া হয়েছে — তারিখ: ${vEsc(st.rec.date)}${st.rec.note?" ("+vEsc(st.rec.note)+")":""}`;act=`<div class="vac-form"><button class="del" onclick="unmarkVac('${v.k}')">↩️ বাতিল করুন</button></div>`}
+   else if(st.s==="due"){cls="vac-due";msg=`⚠️ এখনই দেওয়ার সময়! আজসহ আর ${bnN(st.left)} দিন`;act=form}
+   else if(st.s==="late"){cls="vac-late";msg=`🚨 সময় পেরিয়ে গেছে (${bnN(st.late)} দিন দেরি) — দ্রুত দিন`;act=form}
+   else if(st.s==="soon"){cls="vac-soon";msg="🔔 কাল থেকে শুরু";act=form}
+   else if(st.s==="wait"){msg=`⏳ আর ${bnN(st.inDays)} দিন পরে শুরু`;act=form}
+   else{msg="📅 বাচ্চা আসার তারিখ দিন";act=form}
+   return`<div class="vac ${cls}"><div class="vac-ic">${ic}</div><div class="vac-body"><div class="vac-t">${v.name}</div><div class="vac-s">বয়স ${bnN(v.from)}–${bnN(v.to)} দিন${state.startDate?" &nbsp;•&nbsp; 📆 "+vacRange(v):""}</div><div class="vac-st">${msg}</div>${act}</div></div>`;
+  }).join("");
+ }
+ let nb=document.getElementById("vacNotifBox");
+ if(nb){
+  let can=("Notification" in window)&&Notification.permission==="default";
+  nb.innerHTML=can?`<button class="add" style="width:100%;margin-bottom:12px" onclick="vacAskNotif()">🔔 ফোনে নোটিফিকেশন ওয়ার্নিং চালু করুন</button>`:"";
+ }
+ renderVacBanner();
+}
+function markVac(k){
+ let d=document.getElementById("vd_"+k),n=document.getElementById("vn_"+k);
+ state.vaccines=state.vaccines||{};
+ state.vaccines[k]={date:(d&&d.value)||todayISO(),note:(n&&n.value.trim())||""};
+ save();render();showToast("✅ ভ্যাকসিন দেওয়া হয়েছে — সবুজ টিক পড়েছে");
+}
+function unmarkVac(k){
+ if(!confirm("এই ভ্যাকসিনের 'দেওয়া হয়েছে' চিহ্ন বাতিল করবেন?"))return;
+ if(state.vaccines)delete state.vaccines[k];
+ save();render();
+}
+function vacAskNotif(){
+ try{Notification.requestPermission().then(()=>{renderVaccine();vacCheck(true)})}catch(e){}
+}
+function vacNotify(title,body){
+ try{
+  if(!("Notification" in window)||Notification.permission!=="granted")return;
+  if(navigator.serviceWorker&&navigator.serviceWorker.ready)navigator.serviceWorker.ready.then(r=>r.showNotification(title,{body:body,icon:"icon-192.png",tag:"vaccine",lang:"bn"}));
+  else new Notification(title,{body:body});
+ }catch(e){}
+}
+function hideVacPopup(){document.getElementById("vacModal").classList.remove("show")}
+let _vacDay="";
+function vacCheck(force){
+ renderVacBanner();
+ let al=vacAlerts().filter(x=>x.st.s!=="soon");
+ if(!al.length)return;
+ let t=todayISO();
+ if(_vacDay!==t||force===true){
+  _vacDay=t;
+  document.getElementById("vacModalBody").innerHTML=al.map(x=>`<div class="vacitem">${vEsc(vacLine(x))}</div>`).join("");
+  document.getElementById("vacModal").classList.add("show");
+ }
+ try{
+  if(localStorage.getItem("vacNotifDay")!==t){
+   vacNotify("💉 ভ্যাকসিনের সময় হয়েছে",al.map(vacLine).join("\n"));
+   localStorage.setItem("vacNotifDay",t);
+  }
+ }catch(e){}
+}
+
+function render(){renderDashboard();renderFarm();renderDeaths();renderWorkers();Object.keys(configs).forEach(renderTable);renderSales();renderLitterSales();renderLitterSalesPage();renderOtherSales();renderGifts();renderCustomers();renderRent();renderReport();renderSheets();renderBatchBar();renderBatchesPage();renderMedSchedule();renderNotes();renderVaccine();renderSummaries();renderCloseBar()}
 makePages();
-const navItems=[["dashboard","🏠 ড্যাশবোর্ড"],["farm","🐣 বাচ্চা"],["deaths","☠️ মৃত বাচ্চা"],["feed","🌾 ফিড"],["medicine","💊 Medicine"],["workers","👷 কর্মচারী"],["other","🧾 বিভিন্ন খরচ"],["litter","🪵 কাঠের গুড়া"],["rent","🚚 পরিবহন ভাড়া"],["sales","💰 বিক্রি"],["othersales","🛒 অন্যান্য বিক্রি"],["customers","👥 ক্রেতা"],["medschedule","💊 মেডিসিন শিডিউল"],["notes","📝 নোট"],["report","📑 রিপোর্ট"],["batches","🗂️ সব ব্যাচ"],["sheets","📚 সব শিট"]];
-const navColors={dashboard:"linear-gradient(135deg,#6366f1,#4f46e5)",farm:"linear-gradient(135deg,#f59e0b,#d97706)",deaths:"linear-gradient(135deg,#ef4444,#b91c1c)",feed:"linear-gradient(135deg,#84cc16,#4d7c0f)",medicine:"linear-gradient(135deg,#a855f7,#7e22ce)",workers:"linear-gradient(135deg,#06b6d4,#0e7490)",other:"linear-gradient(135deg,#f97316,#c2410c)",litter:"linear-gradient(135deg,#a78bfa,#6d28d9)",rent:"linear-gradient(135deg,#14b8a6,#0f766e)",sales:"linear-gradient(135deg,#22c55e,#15803d)",othersales:"linear-gradient(135deg,#f43f5e,#be123c)",customers:"linear-gradient(135deg,#3b82f6,#1d4ed8)",medschedule:"linear-gradient(135deg,#ec4899,#9d174d)",notes:"linear-gradient(135deg,#eab308,#a16207)",report:"linear-gradient(135deg,#0ea5e9,#0369a1)",batches:"linear-gradient(135deg,#8b5cf6,#6d28d9)",sheets:"linear-gradient(135deg,#10b981,#047857)"};
-nav.innerHTML=navItems.map((x,i)=>{
+const navItems=[["dashboard","🏠 ড্যাশবোর্ড"],["medschedule","💊 মেডিসিন শিডিউল"],["notes","📝 নোট"],["vaccine","💉 ভ্যাকসিন"],["farm","🐣 বাচ্চা"],["deaths","☠️ মৃত বাচ্চা"],["feed","🌾 ফিড"],["medicine","💊 Medicine"],["workers","👷 কর্মচারী"],["other","🧾 বিভিন্ন খরচ"],["litter","🪵 কাঠের গুড়া"],["rent","🚚 পরিবহন ভাড়া"],["sales","💰 বিক্রি"],["othersales","🛒 অন্যান্য বিক্রি"],["customers","👥 ক্রেতা"],["report","📑 রিপোর্ট"],["batches","🗂️ সব ব্যাচ"],["sheets","📚 সব শিট"]];
+const navColors={dashboard:"linear-gradient(135deg,#6366f1,#4f46e5)",farm:"linear-gradient(135deg,#f59e0b,#d97706)",deaths:"linear-gradient(135deg,#ef4444,#b91c1c)",feed:"linear-gradient(135deg,#84cc16,#4d7c0f)",medicine:"linear-gradient(135deg,#a855f7,#7e22ce)",workers:"linear-gradient(135deg,#06b6d4,#0e7490)",other:"linear-gradient(135deg,#f97316,#c2410c)",litter:"linear-gradient(135deg,#a78bfa,#6d28d9)",rent:"linear-gradient(135deg,#14b8a6,#0f766e)",sales:"linear-gradient(135deg,#22c55e,#15803d)",othersales:"linear-gradient(135deg,#f43f5e,#be123c)",customers:"linear-gradient(135deg,#3b82f6,#1d4ed8)",medschedule:"linear-gradient(135deg,#ec4899,#9d174d)",vaccine:"linear-gradient(135deg,#22d3ee,#0891b2)",notes:"linear-gradient(135deg,#eab308,#a16207)",report:"linear-gradient(135deg,#0ea5e9,#0369a1)",batches:"linear-gradient(135deg,#8b5cf6,#6d28d9)",sheets:"linear-gradient(135deg,#10b981,#047857)"};
+const navBtn=(x,i)=>{
   const grad=navColors[x[0]]||"linear-gradient(135deg,#1aad6e,#0d8050)";
   const isActive=i===0?"active":"";
   const style=isActive?`style="background:${grad}"`:`style="background:#ffffff0e"`;
-  return `<button class="nav ${isActive}" data-grad="${grad}" ${style} onclick="go('${x[0]}',this)">${x[1]}</button>`;
-}).join("");
+  const badge=x[0]==="vaccine"?'<span id="vacBadge"></span>':"";
+  return `<button class="nav ${i===0?"nav-dash ":""}${isActive}" data-grad="${grad}" ${style} onclick="go('${x[0]}',this)">${x[1]}${badge}</button>`;
+};
+nav.innerHTML=navBtn(navItems[0],0)+'<div class="nav-row">'+navItems.slice(1).map((x,i)=>navBtn(x,i+1)).join("")+'</div>';
 function go(id,b){
   document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
   document.getElementById(id).classList.add("active");
@@ -1293,6 +1456,7 @@ function go(id,b){
 ["renderMedSchedule","renderNotes","renderOtherSales"].forEach(n=>{const f=window[n];window[n]=function(){f.apply(this,arguments);renderSummaries()}});
 render();
 renderTempPallas();
+setTimeout(()=>vacCheck(),700);setInterval(()=>vacCheck(),600000);document.addEventListener("visibilitychange",()=>{if(!document.hidden)vacCheck()});
 if("serviceWorker" in navigator){window.addEventListener("load",()=>{navigator.serviceWorker.register("service-worker.js").catch(()=>{})})}
 </script>
 </body></html>

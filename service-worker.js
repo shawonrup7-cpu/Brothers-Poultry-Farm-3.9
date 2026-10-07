@@ -1,4 +1,4 @@
-const CACHE_NAME = "brothers-poultry-v1";
+const CACHE_NAME = "brothers-poultry-v2";
 const FILES_TO_CACHE = [
   "./index.html",
   "./manifest.json",
@@ -7,8 +7,11 @@ const FILES_TO_CACHE = [
 ];
 
 self.addEventListener("install", (e) => {
+  // একটি ফাইল (যেমন আইকন) না পেলেও যেন পুরো ইনস্টল ব্যর্থ না হয়
   e.waitUntil(
-    caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE))
+    caches.open(CACHE_NAME).then((cache) =>
+      Promise.all(FILES_TO_CACHE.map((f) => cache.add(f).catch(() => {})))
+    )
   );
   self.skipWaiting();
 });
@@ -22,8 +25,28 @@ self.addEventListener("activate", (e) => {
   self.clients.claim();
 });
 
+// নেটওয়ার্ক আগে (নতুন আপডেট পেতে), না থাকলে অফলাইনে ক্যাশ থেকে
 self.addEventListener("fetch", (e) => {
+  if (e.request.method !== "GET") return;
   e.respondWith(
-    caches.match(e.request).then((cached) => cached || fetch(e.request))
+    fetch(e.request)
+      .then((res) => {
+        if (res && res.ok && new URL(e.request.url).origin === location.origin) {
+          const copy = res.clone();
+          caches.open(CACHE_NAME).then((c) => c.put(e.request, copy));
+        }
+        return res;
+      })
+      .catch(() => caches.match(e.request).then((c) => c || caches.match("./index.html")))
+  );
+});
+
+self.addEventListener("notificationclick", (e) => {
+  e.notification.close();
+  e.waitUntil(
+    self.clients.matchAll({ type: "window", includeUncontrolled: true }).then((list) => {
+      if (list.length) return list[0].focus();
+      return self.clients.openWindow("./index.html");
+    })
   );
 });
